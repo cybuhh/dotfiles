@@ -54,3 +54,8 @@
  ```
 
   - whatportis-update - update whatportis database
+
+## utils
+
+ - ll - alias to ls -al
+
