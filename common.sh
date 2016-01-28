@@ -6,8 +6,11 @@ export VISUAL=vim
 export DOTFILES_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
 export DOTFILES_DATA_PATH="$DOTFILES_PATH/data"
 
+# create data path if it's missing
 test -d $DOTFILES_DATA_PATH || mkdir $DOTFILES_DATA_PATH
+
+# add ssh keys
+ssh-add -l > /dev/null || ssh-add > /dev/null
 
 alias dotfiles-commit='cd $DOTFILES_PATH && (echo -e "Please enter commit message: \c"; read MSG ; git commit -m "$MSG") ; cd - > /dev/null'
 alias dotfiles-push='cd $DOTFILES_PATH; git push'
-
