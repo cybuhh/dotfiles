@@ -9,6 +9,7 @@
 
  - git-master - git fetch & checkout master & pull
  - git-rebase - git fetch & rebase to origin/master
+ - git-rebuid - git rebuild (empty commit)
 
 ## heroku
 
