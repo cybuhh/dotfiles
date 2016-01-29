@@ -4,10 +4,10 @@ export LC_CTYPE=en_US.UTF-8
 export EDITOR=vim
 export VISUAL=vim
 export DOTFILES_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
-export DOTFILES_DATA_PATH="$DOTFILES_PATH/data"
+export DOTFILES_VENDOR_PATH="$DOTFILES_PATH/vendor"
 
 # create data path if it's missing
-test -d $DOTFILES_DATA_PATH || mkdir $DOTFILES_DATA_PATH
+test -d $DOTFILES_VENDOR_PATH || mkdir $DOTFILES_VENDOR_PATH
 
 # add ssh keys
 ssh-add -l > /dev/null || ssh-add > /dev/null
