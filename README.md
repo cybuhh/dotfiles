@@ -1,5 +1,9 @@
 # dotfiles
 
+## apps
+ - sublimetext - open file in SublimeText
+ - textedit - open file in TextEdit
+
 ## common
 
  - dotfiles-commit - commit to dotfiles repo
@@ -60,4 +64,5 @@
 ## utils
 
  - ll - alias to ls -al
-
+ - profile-reoload - reload .profile file
+ 
