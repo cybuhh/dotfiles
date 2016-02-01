@@ -15,6 +15,7 @@
  - git-master - git fetch & checkout master & pull
  - git-rebase - git fetch & rebase to origin/master
  - git-rebuid - git rebuild (empty commit)
+ - git-submodule-update - git fetch and refresh all submodules
 
 ## heroku
 
