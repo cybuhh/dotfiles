@@ -14,8 +14,8 @@ test -d $DOTFILES_VENDOR_PATH || mkdir $DOTFILES_VENDOR_PATH
 # add ssh keys
 ssh-add -l > /dev/null || ssh-add > /dev/null
 
-function copyWithBackup {
-    if [ -f $1 ]; then
+function copy-with-backup {
+    if [ -f $2 ]; then
         mv $2 $2.$(date +"%Y%m%d%H%M%S")
     else
         mkdir -p $(dirname $2)
@@ -23,11 +23,11 @@ function copyWithBackup {
     cp $1 $2
 }
 
-function dotfilesInstall {
-    copyWithBackup $DOTFILES_PATH/config/liquidpromptrc ~/.config/liquidpromptrc
-    copyWithBackup $DOTFILES_PATH/config/gitignore_global ~/.gitignore_global
+function dotfiles-install {
+    copy-with-backup $DOTFILES_PATH/config/liquidpromptrc ~/.config/liquidpromptrc
+    copy-with-backup $DOTFILES_PATH/config/gitignore_global ~/.gitignore_global
 }
 
 alias dotfiles-commit='cd $DOTFILES_PATH && (echo -e "Please enter commit message: \c"; read MSG ; git commit -m "$MSG") ; cd - > /dev/null'
 alias dotfiles-push='cd $DOTFILES_PATH; git push'
-alias dotfiles-install=dotfilesInstall
+
