@@ -38,6 +38,11 @@
  $ curl-size-gzip google.com`
  258
  ```
+- packtpub-free - show free packtpub's book for today
+ ```
+ $ packtpub-free
+ PhoneGap and AngularJS for Cross-platform Development
+ ```
 
  - whatismyip - get gloal IP address
 
