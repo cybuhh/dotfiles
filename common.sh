@@ -6,6 +6,8 @@ export VISUAL=vim
 export DOTFILES_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
 export DOTFILES_VENDOR_PATH="$DOTFILES_PATH/vendor"
 
+export PATH=./node_modules/.bin:$PATH
+
 source $DOTFILES_VENDOR_PATH/liquidprompt/liquidprompt
 
 # create data path if it's missing
