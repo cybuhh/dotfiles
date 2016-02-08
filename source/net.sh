@@ -22,7 +22,7 @@ test -f "$servicesFile" || whatportis update
 alias curl-size-raw="curl -s --write-out \"%{size_download}\n\" --output /dev/null"
 alias curl-size-gzip="curl -s -H 'Accept-Encoding: gzip,deflate' --write-out \"%{size_download}\n\" --output /dev/null"
 
-alias packtpub-free="curl -s https://www.packtpub.com/packt/offers/free-learning | tr -d '\n' | egrep -o '<div class=\"dotd-title\">(.+?)</div>' | sed -e 's/<[^>]*>//g' | sed 's/[^0-9A-Za-z_ ,-]//g'"
+alias packtpub-free="curl -s https://www.packtpub.com/packt/offers/free-learning | xmllint --html --recover --xpath \"//*[@class='dotd-title']/h2/text()\" - 2> /dev/null | sed 's/[^0-9A-Za-z_ ,-]//g' | tr -d '\n'"
 
 alias whatismyip='curl ipinfo.io/ip'
 alias whatismyip-local='ifconfig | grep "inet " | grep -v 127.0.0.1 | cut -d " " -f 2'
