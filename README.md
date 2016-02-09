@@ -9,6 +9,10 @@
  - dotfiles-commit - commit to dotfiles repo
  - dotfiles-push - push to dotfiles repo
 
+## dev
+
+ - foreman-supervisor - alias for 'foreman run supervisor'
+
 ## git
 
  - git-commits-waiting - commits waiting to be pushed
