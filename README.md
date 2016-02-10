@@ -8,6 +8,7 @@
 
  - dotfiles-commit - commit to dotfiles repo
  - dotfiles-push - push to dotfiles repo
+ - dotfiles-update - update dotfiles repo
 
 ## dev
 
