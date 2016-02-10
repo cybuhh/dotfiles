@@ -12,6 +12,7 @@
 ## dev
 
  - foreman-supervisor - alias for 'foreman run supervisor'
+ - mongo-url - connect to mongo from mongourl in format mongodb://user:pass@host:port/db_name
 
 ## git
 

@@ -1,2 +1,5 @@
-alias foreman-supervisor='foreman run supervisor'
+mongo-url() {
+	mongo $(echo $1 | sed -e 's/mongodb:\/\//-u /;s/:/ -p /;s/\@/ /')
+}
 
+alias foreman-supervisor='foreman run supervisor'
