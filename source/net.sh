@@ -7,9 +7,9 @@ whatportis() {
     if [ "$1" == 'update' ]; then
         mkdir -p $DOTFILES_VENDOR_PATH/services
         curl -s http://www.iana.org/assignments/service-names-port-numbers/$(basename $servicesFile) | cut -d ',' -f 1,2,3,4 > "$servicesFile"
-	needle=$2
+    	needle=$2
     else
-	needle=$1
+	   needle=$1
     fi
 
     if [ -n "$needle" ]; then
@@ -22,7 +22,15 @@ test -f "$servicesFile" || whatportis update
 alias curl-size-raw="curl -s --write-out \"%{size_download}\n\" --output /dev/null"
 alias curl-size-gzip="curl -s -H 'Accept-Encoding: gzip,deflate' --write-out \"%{size_download}\n\" --output /dev/null"
 
-alias packtpub-free="curl -s https://www.packtpub.com/packt/offers/free-learning | xmllint --html --recover --xpath \"//*[@class='dotd-title']/h2/text()\" - 2> /dev/null | sed 's/[^0-9A-Za-z_ ,-]//g' | tr -d '\n'"
+packtpub-free() {
+    URL=https://www.packtpub.com/packt/offers/free-learning;
+    if [ "$1" == 'open' ];
+    then
+        open $URL
+    else 
+        echo $(curl -s $URL | xmllint --html --recover --xpath "//*[@class='dotd-title']/h2/text()" - 2> /dev/null | sed 's/[^0-9A-Za-z_ ,-]//g' | tr -d '\n')
+    fi
+}
 
 alias whatismyip='curl ipinfo.io/ip'
 alias whatismyip-local='ifconfig | grep "inet " | grep -v 127.0.0.1 | cut -d " " -f 2'
