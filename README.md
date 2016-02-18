@@ -73,6 +73,11 @@
 
   - whatportis-update - update whatportis database
 
+## osx
+
+ - sublime - alias for SublimeText
+ - stree - alias for SourceTree
+ 
 ## utils
 
  - ll - alias to ls -al
