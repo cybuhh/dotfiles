@@ -6,6 +6,7 @@
 
 ## common
 
+ - backup - copy file/folder with current date suffix
  - dotfiles-commit - commit to dotfiles repo
  - dotfiles-push - push to dotfiles repo
  - dotfiles-update - update dotfiles repo

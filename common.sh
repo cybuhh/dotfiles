@@ -14,6 +14,10 @@ test -d $DOTFILES_VENDOR_PATH || mkdir $DOTFILES_VENDOR_PATH
 # add ssh keys
 ssh-add -l > /dev/null || ssh-add > /dev/null
 
+function backup {
+  cp -r $1 $1.$(date +"%Y%m%d%H%M%S")
+}
+
 function copy-with-backup {
     if [ -f $2 ]; then
         mv $2 $2.$(date +"%Y%m%d%H%M%S")
