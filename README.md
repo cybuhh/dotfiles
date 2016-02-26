@@ -76,6 +76,7 @@
 
 ## osx
 
+ - napi - alias for napi - subtitle search
  - sublime - alias for SublimeText
  - stree - alias for SourceTree
  - tor-prooxy - enable/disable tor socks proxy for localhost:9050
@@ -84,4 +85,5 @@
 
  - ll - alias to ls -al
  - profile-reoload - reload .profile file
- 
+ - napi-find - search for subtitles fo video movies recursively
+
