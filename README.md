@@ -78,6 +78,7 @@
 
  - sublime - alias for SublimeText
  - stree - alias for SourceTree
+ - tor-prooxy - enable/disable tor socks proxy for localhost:9050
  
 ## utils
 
