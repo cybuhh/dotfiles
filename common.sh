@@ -30,9 +30,10 @@ function copy-with-backup {
 function dotfiles-install {
     copy-with-backup $DOTFILES_PATH/config/liquidpromptrc ~/.config/liquidpromptrc
     copy-with-backup $DOTFILES_PATH/config/gitignore_global ~/.gitignore_global
+    git-submodule-update
 }
 
 alias dotfiles-commit='cd $DOTFILES_PATH && (echo -e "Please enter commit message: \c"; read MSG ; git commit -m "$MSG") ; cd - > /dev/null'
 alias dotfiles-push='cd $DOTFILES_PATH; git push'
-alias dotfile-update='cd $DOTFILES_PATH; git fetch && git pull ; cd -'
+alias dotfiles-update='cd $DOTFILES_PATH; git fetch && git pull ; cd -'
 
