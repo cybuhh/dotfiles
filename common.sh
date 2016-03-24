@@ -30,6 +30,7 @@ function copy-with-backup {
 function dotfiles-install {
     copy-with-backup $DOTFILES_PATH/config/liquidpromptrc ~/.config/liquidpromptrc
     copy-with-backup $DOTFILES_PATH/config/gitignore_global ~/.gitignore_global
+    copy-with-backup $DOTFILES_PATH/config/youtube-dl ~/.config/youtube-dl/config
     git-submodule-update
 }
 
