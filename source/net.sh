@@ -24,12 +24,15 @@ alias curl-size-gzip="curl -s -H 'Accept-Encoding: gzip,deflate' --write-out \"%
 
 packtpub-free() {
     URL=https://www.packtpub.com/packt/offers/free-learning;
-    if [ "$1" == 'open' ];
-    then
+    if [ "$1" == 'open' ]; then
         open $URL
     else 
         echo $(curl -s $URL | xmllint --html --recover --xpath "//*[@class='dotd-title']/h2/text()" - 2> /dev/null | sed 's/[^0-9A-Za-z_ ,-]//g' | tr -d '\n')
     fi
+}
+
+weather() {
+    curl -4 wttr.in/$1
 }
 
 alias whatismyip='curl ipinfo.io/ip'

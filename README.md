@@ -51,6 +51,32 @@
  PhoneGap and AngularJS for Cross-platform Development
  ```
 
+ - weather - get weather for current or defined location
+
+ ```
+ $ weather
+ Weather for City: xxx, Poland
+
+    \  /       Partly Cloudy
+  _ /"".-.     8 – 10 °C
+    \_(   ).   ↓ 11 km/h
+    /(___(__)  10 km
+               0.0 mm
+ ```
+or
+
+ ```
+ $ weather warsaw
+ Weather for City: Warsaw, Poland
+
+      .-.      Light Rain
+     (   ).    9 – 10 °C
+    (___(__)   ↓ 9 km/h
+     ‘ ‘ ‘ ‘   10 km
+    ‘ ‘ ‘ ‘    0.0 mm
+ ```
+
+
  - whatismyip - get gloal IP address
 
  ```
@@ -72,7 +98,7 @@
  redis         6379         tcp                 An advanced key-value cache and store
  ```
 
-  - whatportis-update - update whatportis database
+ - whatportis-update - update whatportis database
 
 ## osx
 
