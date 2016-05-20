@@ -23,6 +23,7 @@
  - git-rebase - git fetch & rebase to origin/master
  - git-rebuid - git rebuild (empty commit)
  - git-submodule-update - git fetch and refresh all submodules
+ - git-is-file-changed - check if given file was modified
 
 ## heroku
 
