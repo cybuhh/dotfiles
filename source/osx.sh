@@ -10,16 +10,8 @@ alias stree="/Applications/SourceTree.app/Contents/Resources/stree"
 alias qnapi="/Applications/QNapi.app/Contents/MacOS/QNapi -c"
 
 battery() {
-	case $1 in
-		"keyboard")
-			ioreg -c AppleBluetoothHIDKeyboard | grep 'BatteryPercent\" =' | awk '{ print "Keyboard battery level: " $NF "%" }'
-			;;
-		"mouse")
-			ioreg -c BNBMouseDevice | grep 'BatteryPercent\" =' | awk '{ print "Mouse battery level: " $NF "%" }'
-			;;
-		*)
-			echo -e "Enter one of:\n- keyboard\n- kbd\n- mouse\n- mice"
-	esac
+	ioreg -c AppleBluetoothHIDKeyboard | grep 'BatteryPercent\" =' | awk '{ print "Keyboard battery level: " $NF "%" }'
+	ioreg -c BNBMouseDevice | grep 'BatteryPercent\" =' | awk '{ print "Mouse battery level: " $NF "%" }'
 }
 
 tor-prooxy() {
