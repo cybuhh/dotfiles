@@ -1,5 +1,9 @@
 # dotfiles
 
+Add to your .profile or .bash_profile line below to load it
+
+```source [DOTFILES_PATH]/init.sh```
+
 ## apps
  - sublimetext - open file in SublimeText
  - textedit - open file in TextEdit
@@ -7,14 +11,19 @@
 ## common
 
  - backup - copy file/folder with current date suffix
- - dotfiles-commit - commit to dotfiles repo
- - dotfiles-push - push to dotfiles repo
- - dotfiles-update - update dotfiles repo
 
 ## dev
 
  - foreman-supervisor - alias for 'foreman run supervisor'
  - mongo-url - connect to mongo from mongourl in format mongodb://user:pass@host:port/db_name
+
+## dotfiles
+
+ - dotfiles-commit - commit to dotfiles repo
+ - dotfiles-push - push to dotfiles repo
+ - dotfiles-reoload - reload dotfile scripts
+ - dotfiles-update - update dotfiles repo
+ - dotfiles-install - install vendors etc.
 
 ## git
 
@@ -112,6 +121,5 @@ or
 ## utils
 
  - ll - alias to ls -al
- - profile-reoload - reload .profile file
  - napi-find - search for subtitles fo video movies recursively
 
