@@ -103,6 +103,7 @@ or
 
 ## osx
 
+ - battery - get battery level for keyboard and mouse
  - napi - alias for napi - subtitle search
  - sublime - alias for SublimeText
  - stree - alias for SourceTree

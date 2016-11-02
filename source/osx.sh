@@ -9,6 +9,11 @@ alias sublime="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 alias stree="/Applications/SourceTree.app/Contents/Resources/stree"
 alias qnapi="/Applications/QNapi.app/Contents/MacOS/QNapi -c"
 
+battery() {
+	ioreg -c AppleBluetoothHIDKeyboard | grep 'BatteryPercent\" =' | awk '{ print "Keyboard battery level: " $NF "%" }'
+	ioreg -c BNBMouseDevice | grep 'BatteryPercent\" =' | awk '{ print "Mouse battery level: " $NF "%" }'
+}
+
 tor-prooxy() {
 	case $1 in
 		"on")
