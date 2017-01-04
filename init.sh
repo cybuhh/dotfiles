@@ -5,6 +5,7 @@ export EDITOR=vim
 export VISUAL=vim
 export DOTFILES_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
 export DOTFILES_VENDOR_PATH="$DOTFILES_PATH/vendor"
+export BASH_MAJOR=${BASH_VERSION:0:1}
 
 # create data path if it's missing
 test -d $DOTFILES_VENDOR_PATH || mkdir $DOTFILES_VENDOR_PATH
