@@ -7,10 +7,10 @@ alias disable-history='unset HISTFILE'
 cache-clean() {
   CACHE_TYPES=()
   CACHE_PATHS=()
-  while read LINE; do
-    CACHE_TYPES+=($(echo $LINE | cut -d ';' -f 1))
-    CACHE_PATHS+=($(echo $LINE | cut -d ';' -f 2-))
-  done <$DOTFILES_PATH/config/cache_paths
+  while read -r LINE; do
+    CACHE_TYPES+=($(echo "$LINE" | cut -d ';' -f 1))
+    CACHE_PATHS+=($(echo "$LINE" | cut -d ';' -f 2-))
+  done <"$DOTFILES_PATH/config/cache_paths"
 
   if [ $# -eq 0 ]; then
     echo "Please provide cache type to clean"
@@ -22,7 +22,7 @@ cache-clean() {
         PATH_TO_CLEAN+="\"${IDX//,/ /}\" "
       done
     else
-      temp=`echo ${CACHE_TYPES[@]}`
+      temp=${CACHE_TYPES[*]}
       temp=( ${temp%%$1*} )
       IDX=${#temp[@]}
       PATH_TO_CLEAN=${CACHE_PATHS[$IDX]}

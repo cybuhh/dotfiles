@@ -1,0 +1,17 @@
+sudo: required
+dist: trusty
+language: bash
+
+before_install:
+- sudo apt-add-repository "deb http://archive.ubuntu.com/ubuntu trusty-backports main restricted universe multiverse"
+- sudo apt-get -qq update
+- sudo apt-get install cabal-install
+- cabal update
+- cabal install shellcheck
+
+script:
+- bash test.sh
+
+env:
+  global:
+  - PATH="$HOME/.cabal/bin:$PATH"

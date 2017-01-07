@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-alias sublimetext="open -a Sublime\ Text $1"
-alias textedit="open -a TextEdit $1"
+sublimetext() { "open -a Sublime\ Text $1"; }
+textedit() { "open -a TextEdit $1"; }
