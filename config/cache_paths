@@ -1,0 +1,3 @@
+composer;~/.composer/cache
+heroku;~/.heroku/.npm-cache
+other;~/.yjp/log/*.log /tmp/foo /foo/bar

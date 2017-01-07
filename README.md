@@ -118,8 +118,13 @@ or
  - stree - alias for SourceTree
  - tor-prooxy - enable/disable tor socks proxy for localhost:9050
  
+## security
+ 
+  - cache-clean - remove cache of given type from disk
+ 
 ## utils
 
  - ll - alias to ls -al
  - napi-find - search for subtitles fo video movies recursively
-
+ - nvm-update - update current used nodejs to newest version, alias to default,
+ reinstall packages from current version and remove old nodejs version
