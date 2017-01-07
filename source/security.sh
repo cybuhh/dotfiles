@@ -7,24 +7,27 @@ alias disable-history='unset HISTFILE'
 cache-clean() {
   CACHE_TYPES=()
   CACHE_PATHS=()
-  for VAL in $(cat $DOTFILES_PATH/config/cache_paths); do
-    IFS=";" read -r CACHE_TYPE <<< "$VAL"
-    CACHE_PATH=$(echo $VAL | cut -d ';' -f 2-)
-    CACHE_TYPES+=($CACHE_TYPE)
-    CACHE_PATHS+=($CACHE_PATH)
-  done
+  while read LINE; do
+    CACHE_TYPES+=($(echo $LINE | cut -d ';' -f 1))
+    CACHE_PATHS+=($(echo $LINE | cut -d ';' -f 2-))
+  done <$DOTFILES_PATH/config/cache_paths
 
-  if [ $# -gt 0 ]; then
-    temp=`echo ${CACHE_TYPES[@]}`
-    temp=( ${temp%%$1*} )
-    IDX=${#temp[@]}
-    PATH_TO_CLEAN=${CACHE_PATHS[$IDX]}
+  if [ $# -eq 0 ]; then
+    echo "Please provide cache type to clean"
+    echo Available types: all "${CACHE_TYPES[@]}"
   else
-    PATH_TO_CLEAN=""
-    for IDX in "${CACHE_PATHS[@]}"; do
-      PATH_TO_CLEAN+="\"${IDX//,/ /}\" "
-    done
+    if [ "$1" == "all" ];then
+      PATH_TO_CLEAN=""
+      for IDX in "${CACHE_PATHS[@]}"; do
+        PATH_TO_CLEAN+="\"${IDX//,/ /}\" "
+      done
+    else
+      temp=`echo ${CACHE_TYPES[@]}`
+      temp=( ${temp%%$1*} )
+      IDX=${#temp[@]}
+      PATH_TO_CLEAN=${CACHE_PATHS[$IDX]}
+    fi
+    echo "Cleaning path(s): $PATH_TO_CLEAN"
+    rm -rf "$PATH_TO_CLEAN"
   fi
-  echo "Cleaning path(s): $PATH_TO_CLEAN"
-  rm -rf "$PATH_TO_CLEAN"
 }
