@@ -15,7 +15,10 @@ Add to your .profile or .bash_profile line below to load it
 ## dev
 
  - foreman-supervisor - alias for 'foreman run supervisor'
- - mongo-url - connect to mongo from mongourl in format mongodb://user:pass@host:port/db_name
+ - mongo-url - connect to mongo from mongo url in format mongodb://user:pass@host:port/db_name
+ - nvm-update - update current used nodejs to newest version, alias to default,
+   reinstall packages from current version and remove old nodejs version
+ - redis-cli-url - connect to redis from redis url in format redis://user:pass@host:port
 
 ## dotfiles
 
@@ -126,5 +129,3 @@ or
 
  - ll - alias to ls -al
  - napi-find - search for subtitles fo video movies recursively
- - nvm-update - update current used nodejs to newest version, alias to default,
- reinstall packages from current version and remove old nodejs version
