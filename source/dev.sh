@@ -10,7 +10,7 @@ function mongo-url() {
 
 # redis://user:pass@host:port
 function redis-cli-url() {
-  PARAMS=($(echo "$1" | sed -e 's/redis:\/\/[^:]*:/ -a /;s/\@/ -h /;s/:/ -p /'))
+  PARAMS=($(echo "$1" | sed -e 's/redis:\/\/[^:]*:/ -a /;s/\@/ -h /;s/:/ -p /;s/-a  -h/-h/'))
   redis-cli "${PARAMS[@]}"
 }
 
