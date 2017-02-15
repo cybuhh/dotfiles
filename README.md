@@ -129,3 +129,11 @@ or
 
  - ll - alias to ls -al
  - napi-find - search for subtitles fo video movies recursively
+
+## work
+
+ - kali-ip - get ip of kali host
+ - log-yata-[stage/prod] - tail yata logs
+ - log-sifter-indexer-[stage/prod] -  tail sifter indexer logs
+ - log-sifter-api-[stage/prod] - tail sifter api logs
+
