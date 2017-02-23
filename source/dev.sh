@@ -50,3 +50,9 @@ nvm-update() {
     fi
   fi
 }
+
+# params: port status_code
+# eg: 8001 200
+server() {
+  while true; do echo -e "HTTP/1.1 ${2:-200} OK\n\n $(date)" | nc -l 127.0.0.1 ${1:-8000}; done
+}

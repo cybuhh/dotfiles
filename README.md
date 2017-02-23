@@ -19,6 +19,8 @@ Add to your .profile or .bash_profile line below to load it
  - nvm-update - update current used nodejs to newest version, alias to default,
    reinstall packages from current version and remove old nodejs version
  - redis-cli-url - connect to redis from redis url in format redis://user:pass@host:port
+ - server - simple netcat server, listen on given port, dump request and respond with given status code
+   e.g. server 8000 200
 
 ## dotfiles
 
