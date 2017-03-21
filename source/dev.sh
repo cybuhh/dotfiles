@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+alias docker-cleanup='docker system prune && docker container prune && docker image prune && docker network prune && docker volume prune'
+
 alias foreman-supervisor='foreman run supervisor -e node,js,env,yaml,yml,css'
 
 # mongodb://user:pass@host:port/db_name
