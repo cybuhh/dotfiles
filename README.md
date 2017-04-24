@@ -127,6 +127,7 @@ or
 ## security
  
   - cache-clean - remove cache of given type from disk
+  - defaults-clean - clean history stored in defaults values
  
 ## utils
 

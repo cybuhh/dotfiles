@@ -31,3 +31,7 @@ cache-clean() {
     rm -rf "$PATH_TO_CLEAN"
   fi
 }
+
+defaults-clean() {
+   defaults delete org.videolan.vlc recentlyPlayedMedia
+}
