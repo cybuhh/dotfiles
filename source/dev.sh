@@ -38,7 +38,7 @@ nvm-update() {
         [yY][eE][sS]|[yY])
           nvm alias default "$remoteVersion"
           nvm use "$remoteVersion"
-          ln -s "$NVM_DIR/versions/node/$(nvm version default)" "$NVM_DIR/versions/node/default"
+          ln -sf "$NVM_DIR/versions/node/$(nvm version default)" "$NVM_DIR/versions/node/default"
 		      ;;
       esac
 
