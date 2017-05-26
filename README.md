@@ -48,6 +48,13 @@ Add to your .profile or .bash_profile line below to load it
 
 ## net
 
+ - ping-port - ping tcp port on host
+ 
+ ```
+ $ ping-port google.com 443
+ close
+ ```
+
  - curl-size-raw - get size of raw source
  
  ```
