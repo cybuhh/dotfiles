@@ -17,9 +17,10 @@ Add to your .profile or .bash_profile line below to load it
  - docker-cleanup - alias for all docker prune commands
  - foreman-supervisor - alias for 'foreman run supervisor'
  - mongo-url - connect to mongo from mongo url in format mongodb://user:pass@host:port/db_name
- - nvm-update - update current used nodejs to newest version, alias to default,
+ - nvm-update [major version] - update current used nodejs to newest version, alias to default,
    reinstall packages from current version and remove old nodejs version
  - redis-cli-url - connect to redis from redis url in format redis://user:pass@host:port
+ - remove-node_modules - remove all node_modules folders in current directories and all sub-directories
  - server - simple netcat server, listen on given port, dump request and respond with given status code
    e.g. server 8000 200
 
@@ -139,6 +140,7 @@ or
 ## utils
 
  - ll - alias to ls -al
+ - m4a2mp3 - convert all m4a file to mp3 in current directory
  - napi-find - search for subtitles fo video movies recursively
 
 ## work

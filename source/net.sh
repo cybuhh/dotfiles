@@ -5,10 +5,10 @@ servicesFilePath="$DOTFILES_VENDOR_PATH/services"
 
 #
 # params: host port status_code
-# eg: google 443
+# eg: google.com 443
 #
 ping-port() {
-  (echo >/dev/tcp/{$1}/{$2}) &>/dev/null && echo "open" || echo "close"
+  (echo >/dev/tcp/"$1"/"$2") &>/dev/null && echo "open" || echo "close"
 }
 
 whatportis() {
