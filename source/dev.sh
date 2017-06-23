@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+alias remove-node_modules='find . -type d -name node_modules -exec rm -r {} \;'
 alias docker-cleanup='docker system prune && docker container prune && docker image prune && docker network prune && docker volume prune'
 
 alias foreman-supervisor='foreman run supervisor -e node,js,env,yaml,yml,css'
@@ -29,7 +30,7 @@ nvm-update() {
   fi
 
   currentVersion=$(nvm current | sed -e 's/^v//')
-  versionMajor=$(echo "$currentVersion" | cut -d '.' -f 1)
+  versionMajor=${1:-$(echo "$currentVersion" | cut -d '.' -f 1)}
   remoteVersion=$(nvm version-remote "$versionMajor" | sed -e 's/^v//')
   if [ "$remoteVersion" != "$currentVersion" ]; then
     if nvm install "$remoteVersion" --reinstall-packages-from="$currentVersion"; then
