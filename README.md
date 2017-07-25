@@ -26,6 +26,7 @@ Add to your .profile or .bash_profile line below to load it
 
 ## dotfiles
 
+ - dotfiles-cd - cd to dotfiles path
  - dotfiles-commit - commit to dotfiles repo
  - dotfiles-push - push to dotfiles repo
  - dotfiles-reoload - reload dotfile scripts

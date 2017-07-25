@@ -12,6 +12,8 @@ function dotfiles-install {
     echo 'Remember to load dofiles by adding to your ~/.bashrc or ~/.bash_profile or ~/.profile below line'
     echo -e "\nsource $DOTFILES_PATH/init.sh\n"
 }
+
+alias dotfiles-cd="cd $DOTFILES_PATH"
 alias dotfiles-commit='cd $DOTFILES_PATH && (echo -e "Please enter commit message: \c"; read MSG ; git commit -m "$MSG") ; cd - > /dev/null'
 alias dotfiles-push='cd $DOTFILES_PATH; git push'
 alias dotfiles-update='cd $DOTFILES_PATH; git fetch && git pull ; cd -'

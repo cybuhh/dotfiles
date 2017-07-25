@@ -18,7 +18,7 @@ function redis-cli-url() {
 }
 
 nvm-update() {
-  if ! command -v nvm; then
+  if ! command -v nvm > /dev/null; then
     NVM_PATH=$NVM_DIR/nvm.sh
     if [ -f "$HOME/.nvm/nvm.sh" ]; then
       # shellcheck source=source/dotfiles.sh
@@ -37,8 +37,12 @@ nvm-update() {
       read -r -n 1 -p "Do you want to make $remoteVersion default? [Y/n]" input
       case $input in
         [yY][eE][sS]|[yY])
+          echo "Aliasing default to $remoteVersion"
           nvm alias default "$remoteVersion"
+          echo "Set nvm-use $remoteVersion"
           nvm use "$remoteVersion"
+          echo  "Symlinking $NVM_DIR/versions/node/$(nvm version default) to $NVM_DIR/versions/node/current"
+          rm "$NVM_DIR/versions/node/current"
           ln -sf "$NVM_DIR/versions/node/$(nvm version default)" "$NVM_DIR/versions/node/current"
 		      ;;
       esac
