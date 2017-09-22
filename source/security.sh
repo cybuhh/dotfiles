@@ -38,7 +38,7 @@ defaults-clean() {
 }
 
 function randomize-mac() {
-  HW_ADDR=`cat /dev/urandom | tr -dc 'a-f0-9' | fold -w 12 | head -n 1`
-  sudo ifconfig $1 lladdr $HW_ADDR
+  HW_ADDR=`openssl rand -hex 6 | sed -e 's/\(..\)/\1:/g; s/.$//'`
+  sudo ifconfig $1 ether $HW_ADDR && \
   echo New hw address for $1 is $HW_ADDR
 }
