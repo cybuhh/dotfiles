@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 alias disable-history='unset HISTFILE'
+alias find-suid='find / -user root -perm -u=s -type f 2>/dev/null'
 
 # bash v3 compatible - no assoc arrays
 # $1 - type_to_clean
@@ -34,4 +35,10 @@ cache-clean() {
 
 defaults-clean() {
    defaults delete org.videolan.vlc recentlyPlayedMedia
+}
+
+function randomize-mac() {
+  HW_ADDR=`cat /dev/urandom | tr -dc 'a-f0-9' | fold -w 12 | head -n 1`
+  sudo ifconfig $1 lladdr $HW_ADDR
+  echo New hw address for $1 is $HW_ADDR
 }

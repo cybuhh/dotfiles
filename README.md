@@ -136,7 +136,15 @@ or
 ## security
  
   - cache-clean - remove cache of given type from disk
+  - disable-history - disable bash history for current session
   - defaults-clean - clean history stored in defaults values
+  - find-suid - find all files with suid mode set
+  - randomize-mac - set random mac address to given interface
+
+  ```
+  $ randomize-mac en1
+  New hw address for en1 is 0d2dfe8ed543
+  ```
  
 ## utils
 
