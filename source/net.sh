@@ -41,7 +41,7 @@ packtpub-free() {
 }
 
 weather() {
-    curl -4 "wttr.in/$1"
+    curl -4 "wttr.in/${1:-$LOCATION_CITY}"
 }
 
 alias whatismyip='curl ipinfo.io/ip'
