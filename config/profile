@@ -4,6 +4,6 @@ export LESSCHARSET=UTF-8
 
 export EDITOR=vim
 export VISUAL=vim
-export BASH_MAJOR=${BASH_VERSION:0:1}
+export BASH_MAJOR="${BASH_VERSION:0:1}"
 
 export LOCATION_CITY="krakow"

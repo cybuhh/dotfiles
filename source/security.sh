@@ -38,7 +38,11 @@ defaults-clean() {
 }
 
 function randomize-mac() {
-  HW_ADDR=`openssl rand -hex 6 | sed -e 's/\(..\)/\1:/g; s/.$//'`
-  sudo ifconfig $1 ether $HW_ADDR && \
-  echo New hw address for $1 is $HW_ADDR
+  if [ $# -gt 0 ]; then
+    HW_ADDR=$(openssl rand -hex 6 | sed -e 's/\(..\)/\1:/g; s/.$//')
+    sudo ifconfig "$1" ether "$HW_ADDR" && \
+    echo New hw address for "$1" is "$HW_ADDR"
+  else
+    echo 'Missing parameter: interface name'
+  fi
 }

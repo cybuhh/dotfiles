@@ -4,7 +4,8 @@ export DOTFILES_PATH
 DOTFILES_PATH=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)
 export DOTFILES_VENDOR_PATH="$DOTFILES_PATH/vendor"
 
-source $DOTFILES_PATH/config/profile
+# shellcheck source=/dev/null
+source "$DOTFILES_PATH/config/profile"
 # create data path if it's missing
 test -d "$DOTFILES_VENDOR_PATH" || mkdir "$DOTFILES_VENDOR_PATH"
 
