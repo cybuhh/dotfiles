@@ -26,7 +26,6 @@ Add to your .profile or .bash_profile line below to load it
 
 ## dotfiles
 
- - dotfiles-cd - cd to dotfiles path
  - dotfiles-commit - commit to dotfiles repo
  - dotfiles-push - push to dotfiles repo
  - dotfiles-reoload - reload dotfile scripts
@@ -148,6 +147,9 @@ or
  
 ## utils
 
+ - cd-dotfiles - cd to dotfiles path
+ - cd-nmap-scripts-user - cd to user's nmap scripts
+ - cd-nmap-scripts-global - cd to global nmap scripts path
  - ll - alias to ls -al
  - m4a2mp3 - convert all m4a file to mp3 in current directory
  - napi-find - search for subtitles fo video movies recursively
