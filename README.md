@@ -150,6 +150,9 @@ or
  - cd-dotfiles - cd to dotfiles path
  - cd-nmap-scripts-user - cd to user's nmap scripts
  - cd-nmap-scripts-global - cd to global nmap scripts path
+ - cd-workspace - cd to path ~/Workspace
+ - cd-workspace-nodejs - cd to path ~/Workspace/nodejs
+ - cd-workspace-ops - cd to path ~/Workspace/ops
  - ll - alias to ls -al
  - m4a2mp3 - convert all m4a file to mp3 in current directory
  - napi-find - search for subtitles fo video movies recursively
