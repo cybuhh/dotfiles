@@ -145,7 +145,7 @@ or
   New hw address for en1 is 0d2dfe8ed543
   ```
  
-## utils
+## util
 
  - cd-dotfiles - cd to dotfiles path
  - cd-nmap-scripts-user - cd to user's nmap scripts
@@ -153,6 +153,7 @@ or
  - cd-workspace - cd to path ~/Workspace
  - cd-workspace-nodejs - cd to path ~/Workspace/nodejs
  - cd-workspace-ops - cd to path ~/Workspace/ops
+ - cd-workspace-svp - cd to path ~/Workspace/svp
  - ll - alias to ls -al
  - m4a2mp3 - convert all m4a file to mp3 in current directory
  - napi-find - search for subtitles fo video movies recursively
