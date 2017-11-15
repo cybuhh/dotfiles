@@ -5,7 +5,7 @@ alias find-suid='find / -user root -perm -u=s -type f 2>/dev/null'
 
 # bash v3 compatible - no assoc arrays
 # $1 - type_to_clean
-cache-clean() {
+clean-cache() {
   CACHE_TYPES=()
   CACHE_PATHS=()
   while read -r LINE; do
@@ -33,9 +33,11 @@ cache-clean() {
   fi
 }
 
-defaults-clean() {
+clean-defaults() {
    defaults delete org.videolan.vlc recentlyPlayedMedia
 }
+
+alias clean-exif='brewCmd exiftool && exiftool -all= -overwrite_original_in_place'
 
 function randomize-mac() {
   if [ $# -gt 0 ]; then
@@ -46,3 +48,4 @@ function randomize-mac() {
     echo 'Missing parameter: interface name'
   fi
 }
+

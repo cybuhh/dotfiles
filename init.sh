@@ -38,6 +38,9 @@ function sourceIfExist() {
     test -f "$1" && source "$1"
 }
 
+function brewCmd() {
+  type "$1" > /dev/null 2>&1 || (echo -e "$1 missing, \nuse: brew install $1" && false)
+}
 sourceIfExist "$DOTFILES_VENDOR_PATH/liquidprompt/liquidprompt"
 sourceIfExist "$DOTFILES_VENDOR_PATH/git/git-completion.bash"
 

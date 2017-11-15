@@ -14,7 +14,7 @@ battery() {
 	ioreg -c BNBMouseDevice | grep 'BatteryPercent\" =' | awk '{ print "Mouse battery level: " $NF "%" }'
 }
 
-tor-prooxy() {
+tor-proxy() {
 	case $1 in
 		"on")
 			networksetup -setsocksfirewallproxy "Wi-Fi" localhost 9050

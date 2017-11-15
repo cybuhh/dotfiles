@@ -130,13 +130,14 @@ or
  - napi - alias for napi - subtitle search
  - sublime - alias for SublimeText
  - stree - alias for SourceTree
- - tor-prooxy - enable/disable tor socks proxy for localhost:9050
+ - tor-proxy - enable/disable tor socks proxy for localhost:9050
  
 ## security
  
-  - cache-clean - remove cache of given type from disk
+  - clean-cache - remove cache of given type from disk
+  - clean-defaults - clean history stored in defaults values
+  - clean-exif - clean exif metadata from given image
   - disable-history - disable bash history for current session
-  - defaults-clean - clean history stored in defaults values
   - find-suid - find all files with suid mode set
   - randomize-mac - set random mac address to given interface
 
