@@ -145,6 +145,18 @@ or
   $ randomize-mac en1
   New hw address for en1 is 0d2dfe8ed543
   ```
+
+## server
+  - mongod - start mondog server using db ~/.mongod 
+  - server-static-python2 - simple static http server in python2
+  
+  ```
+  $ server-static-python2 [port]
+  ```
+  
+  - server-static-python3 - simple static http server in python3
+  - server-static-php - simple static http server in php
+  - server-static-ruby - simple static http server in ruby
  
 ## util
 
