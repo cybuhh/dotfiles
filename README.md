@@ -132,6 +132,10 @@ or
  - stree - alias for SourceTree
  - tor-proxy - enable/disable tor socks proxy for localhost:9050
  
+ ## rpi
+ 
+  - display-power - switch on/off screen
+ 
 ## security
  
   - clean-cache - remove cache of given type from disk
