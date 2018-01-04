@@ -11,22 +11,24 @@ test -d "$DOTFILES_VENDOR_PATH" || mkdir "$DOTFILES_VENDOR_PATH"
 
 if [ -f /etc/os-release ]; then
     # freedesktop.org and systemd
+    # shellcheck source=source/dotfiles.sh
     . /etc/os-release
-    OS=$NAME
-    VER=$VERSION_ID
+    OS_NAME=$NAME
+    OS_VER=$VERSION_ID
 elif type lsb_release >/dev/null 2>&1; then
     # linuxbase.org
-    OS=$(lsb_release -si)
-    VER=$(lsb_release -sr)
+    OS_NAME=$(lsb_release -si)
+    OS_VER=$(lsb_release -sr)
 elif [ -f /etc/lsb-release ]; then
     # For some versions of Debian/Ubuntu without lsb_release command
+    # shellcheck source=source/dotfiles.sh
     . /etc/lsb-release
-    OS=$DISTRIB_ID
-    VER=$DISTRIB_RELEASE
+    OS_NAME=$DISTRIB_ID
+    OS_VER=$DISTRIB_RELEASE
 elif [ -f /etc/debian_version ]; then
     # Older Debian/Ubuntu/etc.
-    OS=Debian
-    VER=$(cat /etc/debian_version)
+    OS_NAME=Debian
+    OS_VER=$(cat /etc/debian_version)
 elif [ -f /etc/SuSe-release ]; then
     # Older SuSE/etc.
     ...
@@ -35,9 +37,12 @@ elif [ -f /etc/redhat-release ]; then
     ...
 else
     # Fall back to uname, e.g. "Linux <version>", also works for BSD, etc.
-    OS=$(uname -s)
-    VER=$(uname -r)
+    OS_NAME=$(uname -s)
+    OS_VER=$(uname -r)
 fi
+
+export OS_NAME
+export OS_VER
 
 # add ssh keys
 ssh-add -l > /dev/null || ssh-add > /dev/null
@@ -48,19 +53,24 @@ function backup-file-name {
 }
 
 function backup {
-  NEW_FILE=backup-file-name "$1"
-  type $1 >/dev/null 2>&1 && cp -r "$1" "$NEW_FILE"
+  NEW_FILE=$(backup-file-name "$1")
+  type "$1" >/dev/null 2>&1 && cp -rf "$1" "$NEW_FILE"
 }
 
 function copy-with-backup {
     if [ -f "$2" ]; then
         NEW_FILE=$(backup-file-name "$2")
-        type $2 >/dev/null 2>&1 && mv "$2" "$NEW_FILE"
+        type "$2" >/dev/null 2>&1 && mv "$2" "$NEW_FILE"
     else
         FOLDER=$(dirname "$2")
         mkdir -p "$FOLDER"
     fi
     cp "$1" "$2"
+}
+
+function symlink-with-backup {
+    backup "$2"
+    ln -sF "$1" "$2"
 }
 
 function sourceIfExist() {
