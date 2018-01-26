@@ -6,6 +6,10 @@ alias git-rebase='git fetch -p && git rebase -i origin/master'
 alias git-rebuid='git commit -am "rebuild" --allow-empty'
 alias git-submodule-update="git fetch && git pull && git submodule update -f --init --recursive"
 
+git-set-details() {
+  git config user.name "$1" && git config user.email ""
+}
+
 git-is-file-changed() {
     git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD | grep --quiet "$1"
 }

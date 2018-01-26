@@ -40,6 +40,7 @@ Add to your .profile or .bash_profile line below to load it
  - git-rebase - git fetch & rebase to origin/master
  - git-rebuid - git rebuild (empty commit)
  - git-scan-changes - scan all subfolders for git repo and check for unstaged files, uncommited changes, and not pushed commits
+ - git-set-details - set given username and empty email for current repo
  - git-submodule-update - git fetch and refresh all submodules
 
 ## heroku
