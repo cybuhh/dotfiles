@@ -35,11 +35,12 @@ Add to your .profile or .bash_profile line below to load it
 ## git
 
  - git-commits-waiting - commits waiting to be pushed
+ - git-is-file-changed - check if given file was modified
  - git-master - git fetch & checkout master & pull
  - git-rebase - git fetch & rebase to origin/master
  - git-rebuid - git rebuild (empty commit)
+ - git-scan-changes - scan all subfolders for git repo and check for unstaged files, uncommited changes, and not pushed commits
  - git-submodule-update - git fetch and refresh all submodules
- - git-is-file-changed - check if given file was modified
 
 ## heroku
 
