@@ -28,7 +28,7 @@ Add to your .profile or .bash_profile line below to load it
 
  - dotfiles-commit - commit to dotfiles repo
  - dotfiles-push - push to dotfiles repo
- - dotfiles-reoload - reload dotfile scripts
+ - dotfiles-reload - reload dotfile scripts
  - dotfiles-update - update dotfiles repo
  - dotfiles-install - install vendors etc.
 
@@ -178,6 +178,7 @@ or
  - ll - alias to ls -al
  - m4a2mp3 - convert all m4a file to mp3 in current directory
  - napi-find - search for subtitles fo video movies recursively
+ - count-uniq - count unique lines from piped input
 
 ## work
 
