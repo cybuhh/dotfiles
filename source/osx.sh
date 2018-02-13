@@ -26,3 +26,5 @@ tor-proxy() {
 	esac
 	networksetup -getsocksfirewallproxy "Wi-Fi"
 }
+
+alias github-open="git remote -v | head -1 | awk '{print \$2}' | tr ':' '/' | sed -E 's/.+@/https:\/\//g;s/\.git//' | xargs open"

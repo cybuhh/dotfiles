@@ -37,7 +37,6 @@ Add to your .profile or .bash_profile line below to load it
  - git-commits-waiting - commits waiting to be pushed
  - git-is-file-changed - check if given file was modified
  - git-master - git fetch & checkout master & pull
- - git-open - open remote url in github
  - git-rebase - git fetch & rebase to origin/master
  - git-rebuid - git rebuild (empty commit)
  - git-scan-changes - scan all subfolders for git repo and check for unstaged files, uncommited changes, and not pushed commits
@@ -130,6 +129,7 @@ or
 ## osx
 
  - battery - get battery level for keyboard and mouse
+ - github-open - open remote url in github
  - napi - alias for napi - subtitle search
  - sublime - alias for SublimeText
  - stree - alias for SourceTree
