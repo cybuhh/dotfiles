@@ -27,4 +27,5 @@ tor-proxy() {
 	networksetup -getsocksfirewallproxy "Wi-Fi"
 }
 
-alias github-open="git remote -v | head -1 | awk '{print \$2}' | tr ':' '/' | sed -E 's/.+@/https:\/\//g;s/\.git//' | xargs open"
+alias github-open="git remote -v | head -1 | awk '{print \$2}' | tr ':' '/' | sed -E 's/.+@/https:\/\//;s/\.git//' | xargs open"
+alias travis-open="git remote -v | head -1 | awk '{print \$2}' | tr ':' '/' | sed -E 's/.+@/https:\/\//;s/\.git//;s/github/travis/' | xargs open"

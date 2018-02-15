@@ -134,6 +134,7 @@ or
  - sublime - alias for SublimeText
  - stree - alias for SourceTree
  - tor-proxy - enable/disable tor socks proxy for localhost:9050
+ - travis-open - open remote url related task in travis
  
  ## rpi
  
