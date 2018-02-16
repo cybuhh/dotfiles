@@ -6,16 +6,16 @@ alias git-rebase='git fetch -p && git rebase -i origin/master'
 alias git-rebuid='git commit -am "rebuild" --allow-empty'
 alias git-submodule-update="git fetch && git pull && git submodule update -f --init --recursive"
 
-git-set-details() {
+function git-set-details() {
   git config user.name "$1" && git config user.email ""
 }
 
-git-is-file-changed() {
+function git-is-file-changed() {
     git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD | grep --quiet "$1"
 }
 
 # stdout=$(git-scan-changes) && test -z "$stdout" || osascript -e "display notification \"$stdout\" with title \"git\" sound name \"purr\""
-git-scan-changes() {
+function git-scan-changes() {
   cwd=$PWD
   # shellcheck disable=SC2044
 	for project in $(find . -type d -name .git 2> /dev/null) ; do
