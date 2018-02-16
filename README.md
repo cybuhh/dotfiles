@@ -181,6 +181,7 @@ or
  - m4a2mp3 - convert all m4a file to mp3 in current directory
  - napi-find - search for subtitles fo video movies recursively
  - count-uniq - count unique lines from piped input
+ - yt2mp3 - download youtube video and convert to mp3
 
 ## work
 
