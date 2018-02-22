@@ -5,6 +5,7 @@ if [[ "$OSTYPE" != "darwin"* ]]; then
 fi
 
 export CLICOLOR=1
+alias flush-dns="sudo killall -HUP mDNSResponder"
 alias sublime="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 alias stree="/Applications/SourceTree.app/Contents/Resources/stree"
 alias qnapi="/Applications/QNapi.app/Contents/MacOS/QNapi -c"
