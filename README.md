@@ -16,6 +16,7 @@ Add to your .profile or .bash_profile line below to load it
 
  - docker-cleanup - alias for all docker prune commands
  - foreman-supervisor - alias for 'foreman run supervisor'
+ - k8s - k8s tools
  - mongo-url - connect to mongo from mongo url in format mongodb://user:pass@host:port/db_name
  - nvm-update [major version] - update current used nodejs to newest version, alias to default,
    reinstall packages from current version and remove old nodejs version
