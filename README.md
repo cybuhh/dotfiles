@@ -68,10 +68,27 @@ Add to your .profile or .bash_profile line below to load it
  - curl-size-gzip - get size of gzip-ed source
  
  ```
- $ curl-size-gzip google.com`
+ $ curl-size-gzip google.com
  258
  ```
-- packtpub-free [open] - show/open free packtpub's book for today
+ -geoip fetch fetch geo-ip for current or given ip address
+ ```
+ $ geoip
+ DE
+ ```
+
+ ```
+ $ geoip 8.8.8.8
+ DE
+ ```
+ 
+ -geoip-dns - fetch geo-ip for current dns server
+ ```
+ $ geoip-dns
+ DE
+ ```
+ 
+ - packtpub-free [open] - show/open free packtpub's book for today
  ```
  $ packtpub-free
  PhoneGap and AngularJS for Cross-platform Development
@@ -102,6 +119,12 @@ or
     ‘ ‘ ‘ ‘    0.0 mm
  ```
 
+ - whatismydns - get current dns server ip
+
+ ```
+ $ whatismydns
+ 8.8.8.8
+ ```
 
  - whatismyip - get gloal IP address
 
