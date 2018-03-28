@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [[ "$OS" != "Raspbian"* ]]; then
+if [[ "$OS_NAME" != "Raspbian"* ]]; then
 	return;
 fi
 
