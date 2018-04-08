@@ -28,5 +28,7 @@ tor-proxy() {
 	networksetup -getsocksfirewallproxy "Wi-Fi"
 }
 
+# shellcheck disable=SC2142
 alias github-open="git remote -v | head -1 | awk '{print \$2}' | tr ':' '/' | sed -E 's/.+@/https:\/\//;s/\.git//' | xargs open"
+# shellcheck disable=SC2142
 alias travis-open="git remote -v | head -1 | awk '{print \$2}' | tr ':' '/' | sed -E 's/.+@/https:\/\//;s/\.git//;s/github/travis/' | xargs open"
