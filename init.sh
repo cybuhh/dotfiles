@@ -71,7 +71,7 @@ function copy-with-backup {
 function symlink-with-backup {
     backup "$2"
     PARENT_DIR=$(dirname "$2")
-    type -d "$PARENT_DIR" || mkdir -p "$PARENT_DIR"
+    test -d "$PARENT_DIR" || mkdir -p "$PARENT_DIR"
     ln -sF "$1" "$2"
 }
 
