@@ -46,3 +46,14 @@ weather() {
 
 alias whatismyip='curl ipinfo.io/ip'
 alias whatismyip-local='ifconfig | grep "inet " | grep -v 127.0.0.1 | cut -d " " -f 2'
+alias whatismydns="host -a google.com | grep Received | tr '#' ' ' | cut -d ' ' -f 5"
+
+function geoip() {
+  if [ $# -eq 0 ]; then
+    curl "ipinfo.io/country"
+  else
+    curl "ipinfo.io/$1/country"
+  fi
+}
+
+alias geoip-dns='geoip $(whatismydns)'

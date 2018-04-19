@@ -29,7 +29,7 @@ Add to your .profile or .bash_profile line below to load it
 
  - dotfiles-commit - commit to dotfiles repo
  - dotfiles-push - push to dotfiles repo
- - dotfiles-reoload - reload dotfile scripts
+ - dotfiles-reload - reload dotfile scripts
  - dotfiles-update - update dotfiles repo
  - dotfiles-install - install vendors etc.
 
@@ -69,10 +69,27 @@ Add to your .profile or .bash_profile line below to load it
  - curl-size-gzip - get size of gzip-ed source
  
  ```
- $ curl-size-gzip google.com`
+ $ curl-size-gzip google.com
  258
  ```
-- packtpub-free [open] - show/open free packtpub's book for today
+ -geoip fetch fetch geo-ip for current or given ip address
+ ```
+ $ geoip
+ DE
+ ```
+
+ ```
+ $ geoip 8.8.8.8
+ DE
+ ```
+ 
+ -geoip-dns - fetch geo-ip for current dns server
+ ```
+ $ geoip-dns
+ DE
+ ```
+ 
+ - packtpub-free [open] - show/open free packtpub's book for today
  ```
  $ packtpub-free
  PhoneGap and AngularJS for Cross-platform Development
@@ -103,6 +120,12 @@ or
     ‘ ‘ ‘ ‘    0.0 mm
  ```
 
+ - whatismydns - get current dns server ip
+
+ ```
+ $ whatismydns
+ 8.8.8.8
+ ```
 
  - whatismyip - get gloal IP address
 
@@ -130,6 +153,7 @@ or
 ## osx
 
  - battery - get battery level for keyboard and mouse
+ - flush-dns - flush dns
  - github-open - open remote url in github
  - napi - alias for napi - subtitle search
  - sublime - alias for SublimeText
@@ -181,6 +205,8 @@ or
  - ll - alias to ls -al
  - m4a2mp3 - convert all m4a file to mp3 in current directory
  - napi-find - search for subtitles fo video movies recursively
+ - count-uniq - count unique lines from piped input
+ - yt2mp3 - download youtube video and convert to mp3
 
 ## work
 
