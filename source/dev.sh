@@ -69,6 +69,7 @@ function k8s() {
   WIDTH=100
   CHOICE_HEIGHT=13
   OPTIONS=(svp-staging svp-staging
+           svp-beta svp-beta
            svp-production svp-production)
   namespace=$(dialog --title "K8s namespace"  --menu "Choose namespace" $HEIGHT $WIDTH $CHOICE_HEIGHT "${OPTIONS[@]}" 2>&1 >/dev/tty)
   OPTIONS=('all' "get all"
@@ -98,7 +99,7 @@ function k8s() {
       kubectl -n "$namespace" logs -f "$params"
     ;;
     "scale")
-      servicesNames=$(kubectl -n "$namespace" get services -o name)
+      servicesNames=$(kubectl -n "$namespace" get deployment.apps -o name | sed 's/deployment.apps\///g')
       unset OPTIONS
       OPTIONS=()
       for option in $servicesNames; do
@@ -106,7 +107,7 @@ function k8s() {
       done
       serviceName=$(dialog --title "K8s service"  --menu "Choose service" $HEIGHT $WIDTH $CHOICE_HEIGHT "${OPTIONS[@]}" 2>&1 >/dev/tty)
       replicas=$(dialog --title "K8s replicas"  --inputbox "Enter replicas number" $HEIGHT $WIDTH 2>&1 >/dev/tty)
-      kubectl -n "$namespace" scale deploy "$serviceName" --replicas="$replicas"
+      kubectl -n "$namespace" scale deploy "${serviceName}" --replicas="$replicas"
     ;;
     "exec")
       podNames=$(kubectl -n "$namespace" get pods -o name)
@@ -119,7 +120,7 @@ function k8s() {
       kubectl -n "$namespace" exec "$params" -i -t -- sh
     ;;
     "describe")
-      podNames=$(kubectl -n "$namespace" get pods -o name)
+      podNames=$(kubectl -n "$namespace" get deployment.apps -o name | sed 's/deployment.apps\///g')
       unset OPTIONS
       OPTIONS=()
       for option in $podNames; do
