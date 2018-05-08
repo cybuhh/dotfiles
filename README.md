@@ -34,6 +34,7 @@ Add to your .profile or .bash_profile line below to load it
 
 ## git
 
+ - git-autocommit - add all changed files, commit and push to origin
  - git-commits-waiting - commits waiting to be pushed
  - git-is-file-changed - check if given file was modified
  - git-master - git fetch & checkout master & pull
