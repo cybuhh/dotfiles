@@ -110,7 +110,7 @@ function k8s() {
       kubectl -n "$namespace" scale deploy "${serviceName}" --replicas="$replicas"
     ;;
     "exec")
-      podNames=$(kubectl -n "$namespace" get pods -o name)
+      podNames=$(kubectl -n "$namespace" get pods -o name | sed 's/pod\///g')
       unset OPTIONS
       OPTIONS=()
       for option in $podNames; do
