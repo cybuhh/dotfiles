@@ -97,6 +97,7 @@ function k8s() {
       done
       params=$(dialog --title "K8s pod"  --menu "Choose pod" $HEIGHT $WIDTH $CHOICE_HEIGHT "${OPTIONS[@]}" 2>&1 >/dev/tty)
       kubectl -n "$namespace" logs -f "$params"
+      echo "kubectl -n $namespace logs -f $params"
     ;;
     "scale")
       servicesNames=$(kubectl -n "$namespace" get deployment.apps -o name | sed 's/deployment.apps\///g')
@@ -118,6 +119,7 @@ function k8s() {
       done
       params=$(dialog --title "K8s pod"  --menu "Choose pod" $HEIGHT $WIDTH $CHOICE_HEIGHT "${OPTIONS[@]}" 2>&1 >/dev/tty)
       kubectl -n "$namespace" exec "$params" -i -t -- sh
+      echo "kubectl -n $namespace exec $params -i -t -- sh"
     ;;
     "describe")
       podNames=$(kubectl -n "$namespace" get deployment.apps -o name | sed 's/deployment.apps\///g')
