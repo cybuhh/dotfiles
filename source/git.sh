@@ -2,6 +2,7 @@
 
 alias git-autocommit='git add -A && git commit -m "$(curl -sS http://whatthecommit.com/index.txt)" && git push'
 alias git-commits-waiting='git log origin/master..master'
+alias git-log-oneline='git log --pretty=oneline --abbrev-commit'
 alias git-master='git fetch -p && git checkout master && git pull'
 alias git-rebase='git fetch -p && git rebase -i origin/master'
 alias git-rebuid='git commit -am "rebuild" --allow-empty'
