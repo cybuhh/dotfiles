@@ -64,6 +64,8 @@ server() {
   while true; do echo -e "HTTP/1.1 ${2:-200} OK\n\n $(date)" | nc -l 127.0.0.1 "${1:-8000}"; done
 }
 
+alias k8s-watch="watch -n 10 'kubectl -n svp-staging get pods -o wide && kubectl -n svp-beta get pods -o wide && kubectl -n svp-production get pods -o wide'"
+
 function k8s() {
   HEIGHT=15
   WIDTH=100
