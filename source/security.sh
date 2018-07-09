@@ -39,6 +39,8 @@ clean-defaults() {
 
 alias clean-exif='brewCmd exiftool && exiftool -all= -overwrite_original_in_place'
 
+alias nmap-scripts='ls -1 /usr/local/share/nmap/scripts'
+
 function randomize-mac() {
   if [ $# -gt 0 ]; then
     HW_ADDR=$(openssl rand -hex 6 | sed -e 's/\(..\)/\1:/g; s/.$//')
