@@ -31,4 +31,6 @@ tor-proxy() {
 # shellcheck disable=SC2142
 alias github-open="git remote -v | head -1 | awk '{print \$2}' | tr ':' '/' | sed -E 's/.+@/https:\/\//;s/\.git//' | xargs open"
 # shellcheck disable=SC2142
+alias github-pr-open="branch=$(git rev-parse --abbrev-ref HEAD) ; git remote -v | head -1 | awk '{print \$2}' | tr ':' '/' | sed -E 's/.+@/https:\/\//;s/\.git//' | xargs -I {} open {}/compare/$branch?expand=1"
+# shellcheck disable=SC2142
 alias travis-open="git remote -v | head -1 | awk '{print \$2}' | tr ':' '/' | sed -E 's/.+@/https:\/\//;s/\.git//;s/github/travis/' | xargs open"

@@ -160,6 +160,7 @@ or
  - battery - get battery level for keyboard and mouse
  - flush-dns - flush dns
  - github-open - open remote url in github
+ - github-pr-open - open create-pr page with current branch
  - napi - alias for napi - subtitle search
  - sublime - alias for SublimeText
  - stree - alias for SourceTree
