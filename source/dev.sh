@@ -58,6 +58,15 @@ function nvm-update() {
   fi
 }
 
+function npm-outdated() {
+  IFS=$'\n'
+  for line in $(npm outdated | tail -n +2 | tr -s ' '); do
+    IFS=' ' read package current wanted latest location <<<"$line"
+    read -r -n 1 -p "update $package $current -> $latest ? " choice
+    test "$choice" == "y" && npm install "$package@$latest" --save
+  done
+}
+
 # params: port status_code
 # eg: 8001 200
 server() {
