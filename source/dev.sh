@@ -7,12 +7,14 @@ alias foreman-supervisor='foreman run supervisor -e node,js,env,yaml,yml,css'
 
 # mongodb://user:pass@host:port/db_name
 function mongo-url() {
+  # shellcheck disable=SC2207
   PARAMS=($(echo "$1" | sed -e 's/mongodb:\/\//-u /;s/:/ -p /;s/\@/ /'))
   mongo "${PARAMS[@]}"
 }
 
 # redis://user:pass@host:port
 function redis-cli-url() {
+  # shellcheck disable=SC2207
   PARAMS=($(echo "$1" | sed -e 's/redis:\/\/[^:]*:/ -a /;s/\@/ -h /;s/:/ -p /;s/-a  -h/-h/'))
   redis-cli "${PARAMS[@]}"
 }
@@ -61,7 +63,8 @@ function nvm-update() {
 function npm-outdated() {
   IFS=$'\n'
   for line in $(npm outdated | tail -n +2 | tr -s ' '); do
-    IFS=' ' read package current wanted latest location <<<"$line"
+    # shellcheck disable=SC2034
+    IFS=' ' read -r package current wanted latest location <<<"$line"
     read -r -n 1 -p "update $package $current -> $latest ? " choice
     test "$choice" == "y" && npm install "$package@$latest" --save
   done
@@ -70,6 +73,7 @@ function npm-outdated() {
 # params: port status_code
 # eg: 8001 200
 server() {
+  # shellcheck disable=SC1117
   while true; do echo -e "HTTP/1.1 ${2:-200} OK\n\n $(date)" | nc -l 127.0.0.1 "${1:-8000}"; done
 }
 
@@ -97,7 +101,8 @@ function k8s() {
                2 "names only")
       result=$(dialog --title "K8s namespace"  --menu "Choose namespace" $HEIGHT $WIDTH $CHOICE_HEIGHT "${OPTIONS[@]}" 2>&1 >/dev/tty)
       params=$(test "$result" == "2" && echo ' -o name' || echo '')
-      kubectl -n "$namespace" get "$cmd" $params
+      kubectl -n "$namespace" get "$cmd" "$params"
+      echo "kubectl -n $namespace get $cmd $params"
     ;;
     "logs")
       podNames=$(kubectl -n "$namespace" get pods -o name)

@@ -28,7 +28,9 @@ whatportis() {
 
 test -f "$servicesFilePath/$servicesFile" || whatportis update
 
+# shellcheck disable=SC1117
 alias curl-size-raw="curl -s --write-out \"%{size_download}\n\" --output /dev/null"
+# shellcheck disable=SC2142,SC2139,SC2154,SC1117
 alias curl-size-gzip="curl -s -H 'Accept-Encoding: gzip,deflate' --write-out \"%{size_download}\n\" --output /dev/null"
 
 packtpub-free() {

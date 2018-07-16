@@ -10,7 +10,11 @@ alias git-reset='git reset --hard HEAD'
 alias git-submodule-update="git fetch && git pull && git submodule update -f --init --recursive"
 
 function git-set-details() {
-  git config user.name "$1" && git config user.email ""
+  git config user.name "$1" && git config user.email "$2"
+}
+
+function git-set-details-github() {
+  git config user.name "cybuhh" && git config user.email "cybuhh@users.noreply.github.com"
 }
 
 function git-is-file-changed() {

@@ -46,7 +46,8 @@ Add to your .profile or .bash_profile line below to load it
  - git-rebuid - git rebuild (empty commit)
  - git-reset - git reset hard to HEAD
  - git-scan-changes - scan all subfolders for git repo and check for unstaged files, uncommited changes, and not pushed commits
- - git-set-details - set given username and empty email for current repo
+ - git-set-details - set given username and email for current repo
+ - git-set-details-github - github alias username and email for current repo 
  - git-submodule-update - git fetch and refresh all submodules
 
 ## heroku

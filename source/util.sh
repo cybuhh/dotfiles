@@ -21,5 +21,5 @@ alias yt2mp3='youtube-dl -x --audio-format mp3'
 # params: [limit=100]
 # eg.: cat dump.txt | count-uniq 10
 function count-uniq {
-  sort | uniq -c | sort -r | head -n ${1:-100}
+  sort | uniq -c | sort -r | head -n "${1:-100}"
 }

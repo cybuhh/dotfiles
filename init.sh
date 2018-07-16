@@ -81,6 +81,7 @@ function sourceIfExist() {
 }
 
 function brewCmd() {
+  # shellcheck disable=SC1117
   type "$1" > /dev/null 2>&1 || (echo -e "$1 missing, \nuse: brew install $1" && false)
 }
 sourceIfExist "$DOTFILES_VENDOR_PATH/liquidprompt/liquidprompt"
@@ -101,10 +102,13 @@ function dotfiles-install {
     curl -s https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash > "$DOTFILES_VENDOR_PATH/git/git-completion.bash"
     # shellcheck source=source/git.sh
     source "$DOTFILES_PATH/source/git.sh"
+    # shellcheck disable=SC2046,SC2164
     pushd "$DOTFILES_PATH" > /dev/null && git-submodule-update && popd > /dev/null
     echo 'Remember to load dofiles by adding to your ~/.bashrc or ~/.bash_profile or ~/.profile below line'
+    # shellcheck disable=SC1117
     echo -e "\nsource $DOTFILES_PATH/init.sh\n"
 }
 
 # autocomplete host for ssh
+# shellcheck disable=SC2046,SC2005,SC2006,SC2002,SC1117
 complete -W "$(echo `cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["`;)" ssh

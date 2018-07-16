@@ -9,7 +9,9 @@ clean-cache() {
   CACHE_TYPES=()
   CACHE_PATHS=()
   while read -r LINE; do
+    # shellcheck disable=SC2207
     CACHE_TYPES+=($(echo "$LINE" | cut -d ';' -f 1))
+    # shellcheck disable=SC2207
     CACHE_PATHS+=($(echo "$LINE" | cut -d ';' -f 2-))
   done <"$DOTFILES_PATH/config/cache_paths"
 
@@ -24,6 +26,7 @@ clean-cache() {
       done
     else
       temp=${CACHE_TYPES[*]}
+      # shellcheck disable=SC2206
       temp=( ${temp%%$1*} )
       IDX=${#temp[@]}
       PATH_TO_CLEAN=${CACHE_PATHS[$IDX]}

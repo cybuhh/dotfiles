@@ -6,6 +6,7 @@ fi
 
 export CLICOLOR=1
 alias flush-dns="sudo killall -HUP mDNSResponder"
+# shellcheck disable=SC1117
 alias sublime="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 alias stree="/Applications/SourceTree.app/Contents/Resources/stree"
 alias qnapi="/Applications/QNapi.app/Contents/MacOS/QNapi -c"
@@ -28,9 +29,9 @@ tor-proxy() {
 	networksetup -getsocksfirewallproxy "Wi-Fi"
 }
 
-# shellcheck disable=SC2142
+# shellcheck disable=SC2142,SC2139,SC2154,SC1117
 alias github-open="git remote -v | head -1 | awk '{print \$2}' | tr ':' '/' | sed -E 's/.+@/https:\/\//;s/\.git//' | xargs open"
-# shellcheck disable=SC2142
+# shellcheck disable=SC2142,SC2139,SC2154,SC1117
 alias github-pr-open="branch=$(git rev-parse --abbrev-ref HEAD) ; git remote -v | head -1 | awk '{print \$2}' | tr ':' '/' | sed -E 's/.+@/https:\/\//;s/\.git//' | xargs -I {} open {}/compare/$branch?expand=1"
-# shellcheck disable=SC2142
+# shellcheck disable=SC2142,SC2139,SC2154,SC1117
 alias travis-open="git remote -v | head -1 | awk '{print \$2}' | tr ':' '/' | sed -E 's/.+@/https:\/\//;s/\.git//;s/github/travis/' | xargs open"
