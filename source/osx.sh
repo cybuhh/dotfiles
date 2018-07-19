@@ -35,7 +35,7 @@ alias github-open="git remote -v | head -1 | awk '{print \$2}' | tr ':' '/' | se
 function github-pr-open() {
   base_url=$(git remote -v | head -1 | awk '{print $2}' | tr ':' '/' | sed -E 's/.+@/https:\/\//;s/\.git//')
   branch=$(git rev-parse --abbrev-ref HEAD)
-  echo "$base_url/compare/$branch?expand=1"
+  open "$base_url/compare/$branch?expand=1"
 }
 # shellcheck disable=SC2142,SC2139,SC2154,SC1117
 alias travis-open="git remote -v | head -1 | awk '{print \$2}' | tr ':' '/' | sed -E 's/.+@/https:\/\//;s/\.git//;s/github/travis/' | xargs open"
