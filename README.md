@@ -15,6 +15,7 @@ Add to your .profile or .bash_profile line below to load it
 ## dev
 
  - docker-cleanup - alias for all docker prune commands
+ - eslint-check-diff - eslint - check only uncommited changes
  - foreman-supervisor - alias for 'foreman run supervisor'
  - k8s - k8s tools
  - k8s-watch - watch k8s namespaces

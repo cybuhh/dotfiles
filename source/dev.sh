@@ -3,6 +3,7 @@
 alias remove-node_modules='find . -type d -name node_modules -exec rm -r {} \;'
 alias docker-cleanup='docker system prune && docker container prune && docker image prune && docker network prune && docker volume prune'
 
+alias eslint-check-diff='clear && git diff --name-only --diff-filter=d master | grep -v .scss | xargs npx eslint'
 alias foreman-supervisor='foreman run supervisor -e node,js,env,yaml,yml,css'
 
 # mongodb://user:pass@host:port/db_name
