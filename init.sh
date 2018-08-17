@@ -45,7 +45,7 @@ export OS_NAME
 export OS_VER
 
 # add ssh keys
-ssh-add -l > /dev/null || ssh-add > /dev/null
+ssh-add -l > /dev/null || ssh-add > /dev/null 2>&1
 
 function backup-file-name {
   CUR_DATE=$(date +"%Y%m%d%H%M%S")
