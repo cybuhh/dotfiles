@@ -88,6 +88,7 @@ sourceIfExist "$DOTFILES_VENDOR_PATH/liquidprompt/liquidprompt"
 
 sourceIfExist "/usr/local/etc/bash_completion"
 sourceIfExist "$DOTFILES_VENDOR_PATH/git/git-completion.bash"
+sourceIfExist $(brew --prefix)/etc/brew-wrap
 
 FILES_LIST=$(find "$DOTFILES_PATH/source" -type f)
 
