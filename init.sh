@@ -45,7 +45,10 @@ export OS_NAME
 export OS_VER
 
 # add ssh keys
-ssh-add -l > /dev/null || ssh-add > /dev/null 2>&1
+# SSH_AGENT_PID
+if [ ! -z "$SSH_AUTH_SOCK" ]; then
+  ssh-add -l > /dev/null || ssh-add > /dev/null 2>&1
+fi
 
 function backup-file-name {
   CUR_DATE=$(date +"%Y%m%d%H%M%S")
@@ -88,6 +91,9 @@ sourceIfExist "$DOTFILES_VENDOR_PATH/liquidprompt/liquidprompt"
 
 sourceIfExist "/usr/local/etc/bash_completion"
 sourceIfExist "$DOTFILES_VENDOR_PATH/git/git-completion.bash"
+
+echo $PATH | grep /usr/local/bin > /dev/null || export PATH="$PATH:/usr/local/bin"
+
 sourceIfExist $(brew --prefix)/etc/brew-wrap
 
 FILES_LIST=$(find "$DOTFILES_PATH/source" -type f)
