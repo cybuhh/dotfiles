@@ -10,4 +10,4 @@ export BASH_MAJOR="${BASH_VERSION:0:1}"
 
 export LOCATION_CITY="krakow"
 
-export HOMEBREW_BREWFILE=~/Dropbox/_sync/Brewfile-$(hostname)
+export HOMEBREW_BREWFILE=~/Dropbox/_sync/brewfile/$(hostname)
