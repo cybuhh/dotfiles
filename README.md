@@ -7,6 +7,7 @@ Add to your .profile or .bash_profile line below to load it
 ## apps
  - sublimetext - open file in SublimeText
  - textedit - open file in TextEdit
+ - chrome-dws - run chrome with disabled web security
 
 ## common
 
