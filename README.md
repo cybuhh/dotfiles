@@ -158,6 +158,8 @@ or
 
  - whatportis-update - update whatportis database
 
+ - wifi-signal - monitor wifi signal strength
+
 ## osx
 
  - battery - get battery level for keyboard and mouse
