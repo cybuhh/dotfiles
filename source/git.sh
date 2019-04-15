@@ -44,3 +44,16 @@ function git-scan-changes() {
 	done
   cd "$cwd" || return
 }
+
+function git-standup() {
+  git_workspace=$(git config --global dir.workspace)
+  if [ -z $git_workspace ]; then
+    echo 'Please set dir.workspace first with `git config --global dir.workspace $PATH_TO_WORKSPACE`'
+  else
+    for folder in `find $git_workspace -type d -name '.git'`; do
+      echo repo: $folder
+      GIT_DIR=$folder git fetch > /dev/null 2>&1
+      GIT_DIR=$folder git log --since=2.weeks --author=cybuhh --author=matcybur --author=mateusz.cyburt --pretty=oneline
+    done
+  fi
+}

@@ -52,12 +52,6 @@ Add to your .profile or .bash_profile line below to load it
  - git-set-details-github - github alias username and email for current repo 
  - git-submodule-update - git fetch and refresh all submodules
 
-## heroku
-
- - heroku-deploy-dev - deploy to dev
- - heroku-deploy-stage - deploy to stage
- - heroku-deploy-promote - promote stage to production
-
 ## net
 
  - ping-port - ping tcp port on host
@@ -217,11 +211,3 @@ or
  - napi-find - search for subtitles fo video movies recursively
  - count-uniq - count unique lines from piped input
  - yt2mp3 - download youtube video and convert to mp3
-
-## work
-
- - kali-ip - get ip of kali host
- - log-yata-[stage/prod] - tail yata logs
- - log-sifter-indexer-[stage/prod] -  tail sifter indexer logs
- - log-sifter-api-[stage/prod] - tail sifter api logs
-
