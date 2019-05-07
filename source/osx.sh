@@ -17,6 +17,8 @@ battery() {
 	ioreg -c BNBMouseDevice | grep 'BatteryPercent\" =' | awk '{ print "Mouse battery level: " $NF "%" }'
 }
 
+alias finder-open-icons='open /System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/'
+
 tor-proxy() {
 	case $1 in
 		"on")
