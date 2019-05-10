@@ -134,7 +134,8 @@ function k8s() {
     ;;
     "describe")
       appName=$(k8s-get-dialog-from-cmd "K8s app" "Choose app" "kubectl -n "$namespace" get deployment.apps --no-headers=true -o=custom-columns=NAME:.metadata.name") || return
-      podName=$(k8s-get-dialog-from-cmd "K8s pod" "Choose pod" "kubectl -n "$namespace" get pods --no-headers=true -o=custom-columns=NAME:.metadata.name | grep --line-buffered $appName") || return
+      podsList=$(kubectl -n "$namespace" get pods --no-headers=true -o=custom-columns=NAME:.metadata.name | grep $appName)
+      podName=$(k8s-get-dialog-from-cmd "K8s pod" "Choose pod" "echo $podsList") || return
       kubectl -n "$namespace" describe pod "$podName"
       echo "kubectl -n $namespace describe pod $podName"
     ;;
