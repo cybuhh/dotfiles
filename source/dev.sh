@@ -80,73 +80,63 @@ server() {
 
 alias k8s-watch="watch -n 10 'kubectl -n svp-staging get pods -o wide && kubectl -n svp-beta get pods -o wide && kubectl -n svp-production get pods -o wide'"
 
-function k8s() {
+function k8s-set-dialog-env() {
   HEIGHT=15
   WIDTH=100
   CHOICE_HEIGHT=13
-  OPTIONS=(svp-staging svp-staging
-           svp-beta svp-beta
-           svp-production svp-production)
-  namespace=$(dialog --title "K8s namespace"  --menu "Choose namespace" $HEIGHT $WIDTH $CHOICE_HEIGHT "${OPTIONS[@]}" 2>&1 >/dev/tty)
+}
+
+function k8s-get-dialog-from-cmd() {
+  OPTIONS=()
+  for option in $($3); do
+    OPTIONS+=("$option" "$option")
+  done
+  result=$(dialog --title "$1"  --menu "$2" $HEIGHT $WIDTH $CHOICE_HEIGHT "${OPTIONS[@]}" 2>&1 >/dev/tty)
+  echo $result
+  test -z "$result" && return 1 || return 0
+}
+
+function k8s() {
+  k8s-set-dialog-env
+  namespace=$(k8s-get-dialog-from-cmd "K8s namespace" "Choose namespace" "kubectl get namespace --no-headers=true -o=custom-columns=NAME:.metadata.name") || return
   OPTIONS=('all' "get all"
            'pods' "get pods"
            'services' "get services"
+           'deployments' "get deployments"
            logs logs
            scale scale
            exec exec
            describe describe)
-  cmd=$(dialog --title "K8s cmd"  --menu "Choose command" $HEIGHT $WIDTH $CHOICE_HEIGHT "${OPTIONS[@]}" 2>&1 >/dev/tty)
+  cmd=$(dialog --title "K8s cmd"  --menu "Choose command" $HEIGHT $WIDTH $CHOICE_HEIGHT "${OPTIONS[@]}" 2>&1 >/dev/tty) || return
   case "$cmd" in
-    "pods" | "all" | "services")
+    "pods" | "all" | "services" | "deployments")
       OPTIONS=(1 "full"
                2 "names only")
-      result=$(dialog --title "K8s namespace"  --menu "Choose namespace" $HEIGHT $WIDTH $CHOICE_HEIGHT "${OPTIONS[@]}" 2>&1 >/dev/tty)
-      params=$(test "$result" == "2" && echo ' -o name' || echo '')
-      kubectl -n "$namespace" get "$cmd" "$params"
+      result=$(dialog --title "K8s namespace"  --menu "Choose namespace" $HEIGHT $WIDTH $CHOICE_HEIGHT "${OPTIONS[@]}" 2>&1 >/dev/tty) || return
+      params=$(test "$result" == "2" && echo '-o name')
+      kubectl -n "$namespace" get "$cmd" $params
       echo "kubectl -n $namespace get $cmd $params"
     ;;
     "logs")
-      podNames=$(kubectl -n "$namespace" get pods -o name)
-      unset OPTIONS
-      OPTIONS=()
-      for option in $podNames; do
-        OPTIONS+=("${option/pods\//}" "${option/pods\//}")
-      done
-      params=$(dialog --title "K8s pod"  --menu "Choose pod" $HEIGHT $WIDTH $CHOICE_HEIGHT "${OPTIONS[@]}" 2>&1 >/dev/tty)
-      kubectl -n "$namespace" logs -f "$params"
-      echo "kubectl -n $namespace logs -f $params"
+      podName=$(k8s-get-dialog-from-cmd "K8s pod" "Choose pod" "kubectl -n "$namespace" get pods --no-headers=true -o=custom-columns=NAME:.metadata.name") || return
+      kubectl -n "$namespace" logs -f "$podName"
+      echo "kubectl -n $namespace logs -f $podName"
     ;;
     "scale")
-      servicesNames=$(kubectl -n "$namespace" get deployment.apps -o name | sed 's/deployment.apps\///g')
-      unset OPTIONS
-      OPTIONS=()
-      for option in $servicesNames; do
-        OPTIONS+=("${option/services\//}" "${option/services\//}")
-      done
-      serviceName=$(dialog --title "K8s service"  --menu "Choose service" $HEIGHT $WIDTH $CHOICE_HEIGHT "${OPTIONS[@]}" 2>&1 >/dev/tty)
-      replicas=$(dialog --title "K8s replicas"  --inputbox "Enter replicas number" $HEIGHT $WIDTH 2>&1 >/dev/tty)
+      serviceName=$(k8s-get-dialog-from-cmd "K8s service" "Choose service" "kubectl -n "$namespace" get deployment.apps --no-headers=true -o=custom-columns=NAME:.metadata.name") || return
+      replicas=$(dialog --title "K8s replicas"  --inputbox "Enter replicas number" $HEIGHT $WIDTH 2>&1 >/dev/tty) || return
       kubectl -n "$namespace" scale deploy "${serviceName}" --replicas="$replicas"
     ;;
     "exec")
-      podNames=$(kubectl -n "$namespace" get pods -o name | sed 's/pod\///g')
-      unset OPTIONS
-      OPTIONS=()
-      for option in $podNames; do
-        OPTIONS+=("${option/pods\//}" "${option/pods\//}")
-      done
-      params=$(dialog --title "K8s pod"  --menu "Choose pod" $HEIGHT $WIDTH $CHOICE_HEIGHT "${OPTIONS[@]}" 2>&1 >/dev/tty)
-      kubectl -n "$namespace" exec "$params" -i -t -- sh
-      echo "kubectl -n $namespace exec $params -i -t -- sh"
+      podName=$(k8s-get-dialog-from-cmd "K8s pod" "Choose pod" "kubectl -n "$namespace" get pods --no-headers=true -o=custom-columns=NAME:.metadata.name") || return
+      kubectl -n "$namespace" exec "$podName" -i -t -- sh
+      echo "kubectl -n $namespace exec $podName -i -t -- sh"
     ;;
     "describe")
-      podNames=$(kubectl -n "$namespace" get deployment.apps -o name | sed 's/deployment.apps\///g')
-      unset OPTIONS
-      OPTIONS=()
-      for option in $podNames; do
-        OPTIONS+=("${option/pods\//}" "${option/pods\//}")
-      done
-      params=$(dialog --title "K8s pod"  --menu "Choose pod" $HEIGHT $WIDTH $CHOICE_HEIGHT "${OPTIONS[@]}" 2>&1 >/dev/tty)
-      kubectl -n "$namespace" describe pod "$params"
+      appName=$(k8s-get-dialog-from-cmd "K8s app" "Choose app" "kubectl -n "$namespace" get deployment.apps --no-headers=true -o=custom-columns=NAME:.metadata.name") || return
+      podName=$(k8s-get-dialog-from-cmd "K8s pod" "Choose pod" "kubectl -n "$namespace" get pods --no-headers=true -o=custom-columns=NAME:.metadata.name | grep --line-buffered $appName") || return
+      kubectl -n "$namespace" describe pod "$podName"
+      echo "kubectl -n $namespace describe pod $podName"
     ;;
   esac
 }
