@@ -94,7 +94,7 @@ sourceIfExist "$DOTFILES_VENDOR_PATH/git/git-completion.bash"
 
 echo $PATH | grep /usr/local/bin > /dev/null || export PATH="$PATH:/usr/local/bin"
 
-sourceIfExist $(brew --prefix)/etc/brew-wrap
+type brew >/dev/null 2>&1 && sourceIfExist $(brew --prefix)/etc/brew-wrap
 
 FILES_LIST=$(find "$DOTFILES_PATH/source" -type f)
 
