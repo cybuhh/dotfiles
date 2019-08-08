@@ -4,3 +4,4 @@
 --no-call-home
 --no-overwrites
 --format mp4
+-o "%(title)s-%(id)s.%(ext)s"
