@@ -8,7 +8,7 @@ Add to your .profile or .bash_profile line below to load it
  - sublimetext - open file in SublimeText
  - textedit - open file in TextEdit
  - chrome-dws - run chrome with disabled web security
- - vscodium - run vscodium with --enable-proposed-api flag for pull-request-github
+ - codium - run vscodium with --enable-proposed-api flag for pull-request-github
 
 ## common
 
