@@ -46,6 +46,10 @@ weather() {
     curl -4 "wttr.in/${1:-$LOCATION_CITY}"
 }
 
+weather-v2() {
+    curl -4 "v2.wttr.in/${1:-$LOCATION_CITY}"
+}
+
 alias whatismyip='curl ipinfo.io/ip'
 alias whatismyip-local='ifconfig | grep "inet " | grep -v 127.0.0.1 | cut -d " " -f 2'
 alias whatismydns="host -a google.com | grep Received | tr '#' ' ' | cut -d ' ' -f 5"
