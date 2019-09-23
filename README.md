@@ -42,6 +42,7 @@ Add to your .profile or .bash_profile line below to load it
 
  - git-autocommit - add all changed files, commit and push to origin
  - git-commits-waiting - commits waiting to be pushed
+ - git-commit-again - commit again to previous and force push
  - git-is-file-changed - check if given file was modified
  - git-log-oneline - git log in 'oneline' format
  - git-master - git fetch & checkout master & pull
