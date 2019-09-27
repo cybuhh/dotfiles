@@ -33,3 +33,4 @@ function count-uniq {
 }
 
 alias excuse="bash $DOTFILES_VENDOR_PATH/excuse/bin/excuse.sh"
+alias whatthecommit="curl -sS http://whatthecommit.com/index.txt"
