@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+alias git-add-selective='git add -p'
 alias git-autocommit='git add -A && git commit -m "$(curl -sS http://whatthecommit.com/index.txt)" && git push'
 alias git-commits-waiting='git log origin/master..master'
 alias git-log-oneline='git log --pretty=oneline --abbrev-commit'
