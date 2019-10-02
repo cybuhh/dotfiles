@@ -46,6 +46,7 @@ Add to your .profile or .bash_profile line below to load it
  - git-is-file-changed - check if given file was modified
  - git-log-oneline - git log in 'oneline' format
  - git-master - git fetch & checkout master & pull
+ - git-push-force-with-lease - git push with flag --force-with-lease
  - git-rebase - git fetch & rebase to origin/master
  - git-rebuid - git rebuild (empty commit)
  - git-reset - git reset hard to HEAD
