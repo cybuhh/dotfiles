@@ -34,11 +34,13 @@ alias curl-size-raw="curl -s --write-out \"%{size_download}\n\" --output /dev/nu
 alias curl-size-gzip="curl -s -H 'Accept-Encoding: gzip,deflate' --write-out \"%{size_download}\n\" --output /dev/null"
 
 packtpub-free() {
-    URL=https://www.packtpub.com/packt/offers/free-learning;
     if [ "$1" == 'open' ]; then
-        open $URL
+        open "https://www.packtpub.com/free-learning"
     else
-        curl -s $URL | xmllint --html --recover --xpath "//*[@class='dotd-title']/h2/text()" - 2> /dev/null | sed 's/[^0-9A-Za-z_ ,-]//g' | tr -d '\n'
+        DATE_FROM=$(date "+%Y-%m-%dT00:00:00.000Z")
+        DATE_TO=$(date -v+1d "+%Y-%m-%dT00:00:00.000Z")
+        URL="https://services.packtpub.com/free-learning-v1/offers?dateFrom=${DATE_FROM}&dateTo=${DATE_TO}"
+        curl -s $URL | jq '.data[0].productId' | xargs -I {} curl -s https://static.packt-cdn.com/products/{}/summary | jq '.title'
     fi
 }
 
