@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # shellcheck disable=SC1117
+alias sublimemerge="/Applications/Sublime\ Merge.app/Contents/MacOS/sublime_merge"
 sublimetext() { "open -a Sublime\ Text $1"; }
 textedit() { "open -a TextEdit $1"; }
 alias chrome-dws="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --disable-web-security --user-data-dir=$HOME/Library/Application\ Support/Google/Chrome/Default"
