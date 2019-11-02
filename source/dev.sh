@@ -92,7 +92,7 @@ function k8s-get-dialog-from-cmd() {
     OPTIONS+=("$option" "$option")
   done
   result=$(dialog --title "$1"  --menu "$2" $HEIGHT $WIDTH $CHOICE_HEIGHT "${OPTIONS[@]}" 2>&1 >/dev/tty)
-  echo $result
+  echo "$result"
   test -z "$result" && return 1 || return 0
 }
 
