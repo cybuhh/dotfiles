@@ -223,6 +223,7 @@ Location: Kraków, małopolskie, Polska [50.0615,19.9359]
  ## rpi
  
   - display-power - switch on/off screen
+  - temp - show cpu temperature
  
 ## security
  
