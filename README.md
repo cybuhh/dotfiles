@@ -101,6 +101,20 @@ Add to your .profile or .bash_profile line below to load it
  PhoneGap and AngularJS for Cross-platform Development
  ```
 
+ - scan-for-rpi - scan for raspberry pi hosts in given network
+
+  ```
+  $ scan-for-rpi 192.168.20.0/24
+  192.168.20.30
+  ```
+
+ - show-rpi-from-arp - show raspberry pi hosts in arp entries
+
+ ```
+ $ show-rpi-from-arp
+ ? (192.168.20.30) at b8:27:eb:7d:a6:f7 on en0 ifscope [ethernet]
+ ```
+
  - weather - get weather for current or defined location
 
  ```

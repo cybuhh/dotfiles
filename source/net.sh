@@ -67,3 +67,9 @@ function geoip() {
 alias geoip-dns='geoip $(whatismydns)'
 
 alias wifi-signal='clear; while x=1; do /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | grep CtlRSSI | sed -e 's/^.*://g' | xargs -I SIGNAL printf "\rRSSI dBm: SIGNAL"; sleep 0.5; done'
+
+function scan-for-rpi() {
+  sudo nmap -sP $1 | awk '/^Nmap/{ipaddress=$NF}/B8:27:EB/{print ipaddress}'
+}
+
+alias show-rpi-from-arp='arp -na | grep -i b8:27:eb'
