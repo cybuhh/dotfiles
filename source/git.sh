@@ -10,7 +10,7 @@ alias git-rebuid='git commit -am "rebuild" --allow-empty'
 alias git-reset='git reset --hard HEAD'
 alias git-submodule-update="git fetch && git pull && git submodule update -f --init --recursive"
 alias git-push-force-with-lease="git push --force-with-lease"
-alias git-commit-again="git add -A && git commit --amend --no-edit && git-push-force-with-lease"
+alias git-commit-again="git add -A && git commit --amend --no-edit"
 
 function git-set-details() {
   git config user.name "$1" && git config user.email "$2"
