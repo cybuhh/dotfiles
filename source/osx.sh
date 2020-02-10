@@ -41,3 +41,7 @@ function github-pr-open() {
 }
 # shellcheck disable=SC2142,SC2139,SC2154,SC1117
 alias travis-open="git remote -v | head -1 | awk '{print \$2}' | tr ':' '/' | sed -E 's/.+@/https:\/\//;s/\.git//;s/github/travis/' | xargs open"
+
+function cdr2iso {
+  hdiutil convert $1 -format UDTO -o ${2/.cdr/.iso}
+}

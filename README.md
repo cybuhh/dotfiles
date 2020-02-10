@@ -224,6 +224,7 @@ Location: Kraków, małopolskie, Polska [50.0615,19.9359]
 ## osx
 
  - battery - get battery level for keyboard and mouse
+ - cdr2iso - convert .cdr to .iso
  - finder-open-icons - open folder with macos icons
  - flush-dns - flush dns
  - github-open - open remote url in github
