@@ -54,4 +54,4 @@ function randomize-mac() {
   fi
 }
 
-alias clean-vlc-recent='defaults write /Users/cybuhh/Library/Preferences/org.videolan.vlc.plist recentlyPlayedMedia "{}"'
+alias clean-vlc-recent='defaults write ~/Library/Preferences/org.videolan.vlc.plist recentlyPlayedMedia "{}"'
