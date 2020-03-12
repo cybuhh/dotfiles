@@ -45,3 +45,5 @@ alias travis-open="git remote -v | head -1 | awk '{print \$2}' | tr ':' '/' | se
 function cdr2iso {
   hdiutil convert $1 -format UDTO -o ${2/.cdr/.iso}
 }
+
+alias airport="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport"
