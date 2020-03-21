@@ -1,3 +1,16 @@
 composer;~/.composer/cache
 heroku;~/.heroku/.npm-cache
-other;~/.yjp/log/*.log /tmp/foo /foo/bar
+brew;~/Library/Caches/Homebrew
+forklift;~/Library/Caches/com.binarynights.ForkLift-3/FileCache
+chrome;~/Library/Caches/Google/Chrome/Default/Cache
+opera;~/Library/Caches/com.operasoftware.Opera/Cache/
+firefox;~/Library/Caches/Firefox/Profiles/*/cache2
+handbrake;~/Library/Caches/fr.handbrake.HandBrake/Sparkle/HandBrake*
+googlechrome;~/Library/Caches/com.google.SoftwareUpdate/Downloads ~/Library/Caches/Google/Chrome/Default/Cache ~/Library/Caches/Google/Chrome/Default/Code*Cache~/Library/Caches/Google/Chrome/Default/Default/Cache ~/Library/Caches/Google/Chrome/Default/Default/Code*Cache ~/Library/Caches/Google/Chrome/Default/Media*Cache
+edge;~/Library/Caches/Microsoft*Edge*Beta/Default/Cache
+rambox;~/Library/Application*Support/Rambox/Partitions/*/Cache
+pocket;~/Library/Containers/com.readitlater.PocketMac/Data/Library/Application*Support/Pocket/offline/cache*
+friendlynetflix;~/Library/Containers/com.oecoway.friendlynetflix/Data/Library/Caches/WebKit/NetworkCache
+spark;~/Library/Containers/com.readdle.smartemail-Mac/Data/Library/Caches/WebKit/NetworkCache
+twitter;~/Library/Containers/com.twitter.TweetDeck/Data/Library/Caches/com.twitter.TweetDeck/fsCache
+other;~/.yjp/log/*.log

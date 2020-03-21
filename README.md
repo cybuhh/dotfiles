@@ -224,6 +224,8 @@ Location: Kraków, małopolskie, Polska [50.0615,19.9359]
 ## osx
 
  - battery - get battery level for keyboard and mouse
+ - cleanup-cache - remove cache of given type from disk
+ - cleanup-vlc-recent - clean VLC recent history
  - cdr2iso - convert .cdr to .iso
  - finder-open-icons - open folder with macos icons
  - flush-dns - flush dns
@@ -242,10 +244,7 @@ Location: Kraków, małopolskie, Polska [50.0615,19.9359]
  
 ## security
  
-  - clean-cache - remove cache of given type from disk
-  - clean-defaults - clean history stored in defaults values
   - clean-exif - clean exif metadata from given image
-  - clean-vlc-recent - clean VLC recent history
   - disable-history - disable bash history for current session
   - find-suid - find all files with suid mode set
   - randomize-mac - set random mac address to given interface

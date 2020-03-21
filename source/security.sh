@@ -5,39 +5,34 @@ alias find-suid='find / -user root -perm -u=s -type f 2>/dev/null'
 
 # bash v3 compatible - no assoc arrays
 # $1 - type_to_clean
-clean-cache() {
-  CACHE_TYPES=()
-  CACHE_PATHS=()
-  while read -r LINE; do
-    # shellcheck disable=SC2207
-    CACHE_TYPES+=($(echo "$LINE" | cut -d ';' -f 1))
-    # shellcheck disable=SC2207
-    CACHE_PATHS+=($(echo "$LINE" | cut -d ';' -f 2-))
-  done <"$DOTFILES_PATH/config/cache_paths"
+# bash v3 compatible - no assoc arrays
+# $1 - type_to_clean
+cleanup() {
+  IFS=$'\n'
 
   if [ $# -eq 0 ]; then
+    CACHE_TYPES=()
+    for CACHE_PATH in $(cat "$DOTFILES_PATH/config/cache_paths"); do
+      CACHE_TYPES+="$(echo $CACHE_PATH | sed -e 's/;.*//') "
+    done
+
     echo "Please provide cache type to clean"
     echo Available types: all "${CACHE_TYPES[@]}"
   else
-    if [ "$1" == "all" ];then
-      PATH_TO_CLEAN=""
-      for IDX in "${CACHE_PATHS[@]}"; do
-        PATH_TO_CLEAN+="\"${IDX//,/ /}\" "
-      done
-    else
-      temp=${CACHE_TYPES[*]}
-      # shellcheck disable=SC2206
-      temp=( ${temp%%$1*} )
-      IDX=${#temp[@]}
-      PATH_TO_CLEAN=${CACHE_PATHS[$IDX]}
-    fi
-    echo "Cleaning path(s): $PATH_TO_CLEAN"
-    rm -rf "$PATH_TO_CLEAN"
+    for CACHE_PATH in $(cat "$DOTFILES_PATH/config/cache_paths"); do
+      CURRENT_CACHE_TYPE=$(echo $CACHE_PATH | sed -e 's/;.*//')
+      CURRENT_CACHE_PATH_LIST=$(echo $CACHE_PATH | sed -e 's/.*;//' | sed -e "s/~/${HOME//\//\\/}/g")
+      if [[ "$1" == "all"  || "$1" == "$CURRENT_CACHE_TYPE" ]]; then
+        echo $CURRENT_CACHE_PATH_LIST | tr " " "\n" | while read CURRENT_CACHE_PATH; do
+          echo "Cleaning $CURRENT_CACHE_TYPE $CURRENT_CACHE_PATH"
+          rm -rf $CURRENT_CACHE_PATH
+          test -d $CURRENT_CACHE_PATH || echo ok
+        done
+      fi
+    done
   fi
-}
 
-clean-defaults() {
-   defaults delete org.videolan.vlc recentlyPlayedMedia
+  unset IFS
 }
 
 alias clean-exif='brewCmd exiftool && exiftool -all= -overwrite_original_in_place'
@@ -53,5 +48,3 @@ function randomize-mac() {
     echo 'Missing parameter: interface name'
   fi
 }
-
-alias clean-vlc-recent='defaults write ~/Library/Preferences/org.videolan.vlc.plist recentlyPlayedMedia "{}"'
