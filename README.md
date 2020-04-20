@@ -229,8 +229,8 @@ Location: Kraków, małopolskie, Polska [50.0615,19.9359]
  - cdr2iso - convert .cdr to .iso
  - finder-open-icons - open folder with macos icons
  - flush-dns - flush dns
- - github-open - open remote url in github
- - github-pr-open - open create-pr page with current branch
+ - gh-open - open remote url in github
+ - gh-pr-open - open create-pr page with current branch
  - napi - alias for napi - subtitle search
  - sublime - alias for SublimeText
  - stree - alias for SourceTree
