@@ -48,15 +48,25 @@ function git-scan-changes() {
   cd "$cwd" || return
 }
 
+function git-log-since() {
+  authors=""
+  for author in $(git config --global user.authors); do
+    authors += " --author=$author"
+  done;
+  GIT_DIR=$1 git log --since=yesterday --pretty=oneline $authors
+}
+
 function git-standup() {
-  git_workspace=$(git config --global dir.workspace)
-  if [ -z "$git_workspace" ]; then
+  GIT_WORKSPACE=$(git config --global dir.workspace)
+  if [ -z "$GIT_WORKSPACE" ]; then
     echo 'Please set dir.workspace first with `git config --global dir.workspace $PATH_TO_WORKSPACE`'
   else
-    for folder in `find "$git_workspace" -type d -name '.git'`; do
-      echo repo: "$folder"
-      GIT_DIR=$folder git fetch > /dev/null 2>&1
-      GIT_DIR=$folder git log --since=2.weeks --author=cybuhh --author=matcybur --author=mateusz.cyburt --pretty=oneline
+    for FOLDER in `find "$GIT_WORKSPACE" -type d -name '.git'`; do
+      GIT_DIR=$FOLDER git fetch > /dev/null 2>&1
+      if [ -n "$(git-log-since $FOLDER)" ]; then
+        echo repo: "$FOLDER"
+        git-log-since $FOLDER
+      fi
     done
   fi
 }
