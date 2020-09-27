@@ -12,6 +12,12 @@ alias git-submodule-update="git fetch && git pull && git submodule update -f --i
 alias git-push-force-with-lease="git push --force-with-lease"
 alias git-commit-again="git add -A && git commit --amend --no-edit"
 
+function git-branch-rename() {
+	git push origin :$(git branch --show-current)
+	git branch -m $1
+	git push origin $1
+}
+
 function git-set-details() {
   git config user.name "$1" && git config user.email "$2"
 }
