@@ -16,6 +16,7 @@ function git-branch-rename() {
 	git push origin :$(git branch --show-current)
 	git branch -m $1
 	git push origin $1
+	git push origin -u $1
 }
 
 function git-set-details() {
