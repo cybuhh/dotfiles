@@ -228,6 +228,7 @@ Location: Kraków, małopolskie, Polska [50.0615,19.9359]
  - cleanup-cache - remove cache of given type from disk
  - cleanup-vlc-recent - clean VLC recent history
  - cdr2iso - convert .cdr to .iso
+ - fcp-reset-trial - reset final cut pro x trial
  - finder-open-icons - open folder with macos icons
  - flush-dns - flush dns
  - gh-open - open remote url in github
