@@ -73,3 +73,5 @@ function scan-for-rpi() {
 }
 
 alias show-rpi-from-arp='arp -na | grep -i b8:27:eb'
+
+alias ssh-pass='ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no'

@@ -59,13 +59,6 @@ Add to your .profile or .bash_profile line below to load it
 
 ## net
 
- - ping-port - ping tcp port on host
- 
- ```
- $ ping-port google.com 443
- close
- ```
-
  - curl-size-raw - get size of raw source
  
  ```
@@ -102,7 +95,14 @@ Add to your .profile or .bash_profile line below to load it
  PhoneGap and AngularJS for Cross-platform Development
  ```
 
- - scan-for-rpi - scan for raspberry pi hosts in given network
+- ping-port - ping tcp port on host
+ 
+ ```
+ $ ping-port google.com 443
+ close
+ ```
+
+ 
 
   ```
   $ scan-for-rpi 192.168.20.0/24
@@ -115,6 +115,8 @@ Add to your .profile or .bash_profile line below to load it
  $ show-rpi-from-arp
  ? (192.168.20.30) at b8:27:eb:7d:a6:f7 on en0 ifscope [ethernet]
  ```
+
+ - ssh-pass - ssh with forced password auth
 
  - weather - get weather for current or defined location
 
