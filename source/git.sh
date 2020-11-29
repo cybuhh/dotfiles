@@ -2,22 +2,16 @@
 
 alias git-add-selective='git add -p'
 alias git-autocommit='git add -A && git commit -m "$(curl -sS http://whatthecommit.com/index.txt)" && git push'
+alias git-branch-rename='!f() { git push origin :$(git branch --show-current) && git branch -m $1 && git push origin $1 && git push origin -u $1 };f"'
+alias git-c='git commit -m'
+alias git-commit-again="git add -A && git commit --amend --no-edit"
 alias git-commits-waiting='git log origin/master..master'
 alias git-log-oneline='git log --pretty=oneline --abbrev-commit'
 alias git-master='git fetch -p && git checkout master && git pull'
+alias git-push-force-with-lease="git push --force-with-lease"
 alias git-rebase='git fetch -p && git rebase -i origin/master'
 alias git-rebuid='git commit -am "rebuild" --allow-empty'
-alias git-reset='git reset --hard HEAD'
-alias git-submodule-update="git fetch && git pull && git submodule update -f --init --recursive"
-alias git-push-force-with-lease="git push --force-with-lease"
-alias git-commit-again="git add -A && git commit --amend --no-edit"
-
-function git-branch-rename() {
-	git push origin :$(git branch --show-current)
-	git branch -m $1
-	git push origin $1
-	git push origin -u $1
-}
+alias git-reset='git reset --hard HEAD'alias git-submodule-update="git fetch && git pull && git submodule update -f --init --recursive"
 
 function git-set-details() {
   git config user.name "$1" && git config user.email "$2"
