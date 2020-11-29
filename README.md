@@ -109,6 +109,9 @@ Add to your .profile or .bash_profile line below to load it
   192.168.20.30
   ```
 
+ - md-status - show md raid status
+ - 
+
  - show-rpi-from-arp - show raspberry pi hosts in arp entries
 
  ```
