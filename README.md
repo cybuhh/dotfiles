@@ -121,6 +121,8 @@ Add to your .profile or .bash_profile line below to load it
  ```
 
  - ssh-pass - ssh with forced password auth
+ 
+ - ssl-check - show ssl certificate details for given domain name
 
  - weather - get weather for current or defined location
 

@@ -2,7 +2,7 @@
 
 alias git-add-selective='git add -p'
 alias git-autocommit='git add -A && git commit -m "$(curl -sS http://whatthecommit.com/index.txt)" && git push'
-alias git-branch-rename='!f() { git push origin :$(git branch --show-current) && git branch -m $1 && git push origin $1 && git push origin -u $1 };f"'
+alias git-branch-rename='!f() { git push origin :$(git branch --show-current) && git branch -m $1 && git push origin $1 && git push origin -u $1; };f'
 alias git-c='git commit -m'
 alias git-commit-again="git add -A && git commit --amend --no-edit"
 alias git-commits-waiting='git log origin/master..master'
