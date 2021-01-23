@@ -10,5 +10,6 @@ export BASH_MAJOR="${BASH_VERSION:0:1}"
 
 export LOCATION_CITY="krakow"
 
-export HOMEBREW_BREWFILE=~/Dropbox/_sync/brewfile/$(hostname -s).txt
+export SYNC_BUCKET=~/Dropbox/_sync
+export HOMEBREW_BREWFILE=$SYNC_BUCKET/brewfile/$(hostname -s).txt
 export BASH_SILENCE_DEPRECATION_WARNING=1

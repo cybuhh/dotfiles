@@ -230,7 +230,7 @@ Location: Kraków, małopolskie, Polska [50.0615,19.9359]
 
  - wifi-signal - monitor wifi signal strength
 
-## osx
+## macos
 
  - battery - get battery level for keyboard and mouse
  - cleanup-cache - remove cache of given type from disk
@@ -242,6 +242,7 @@ Location: Kraków, małopolskie, Polska [50.0615,19.9359]
  - gh-open - open remote url in github
  - gh-pr-open - open create-pr page with current branch
  - napi - alias for napi - subtitle search
+ - sync-jumpdesktop - sync JumpDesktop settings to sync bucket
  - sublime - alias for SublimeText
  - stree - alias for SourceTree
  - tor-proxy - enable/disable tor socks proxy for localhost:9050

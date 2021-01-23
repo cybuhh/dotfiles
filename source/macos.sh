@@ -49,3 +49,16 @@ function cdr2iso {
 alias airport="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport"
 alias cleanup-vlc-recent='defaults write ~/Library/Preferences/org.videolan.vlc.plist recentlyPlayedMedia "{}"'
 alias fcp-reset-trial='rm ~/Library/Application\ Support/.ffuserdata'
+
+function sync-jumpdesktop() {
+  SYNC_FILE="JDInputProfile.plist"
+  SYNC_FILE_PATH="$HOME/Library/Containers/com.p5sys.jump.mac.viewer/Data/Library/Application Support/Jump Desktop"
+  SYNC_BUCHET_PATH="$SYNC_BUCKET/JumpDesktop"
+
+  if [ "$SYNC_FILE_PATH/$SYNC_FILE" -nt "$SYNC_BUCHET_PATH/$SYNC_FILE" ]; then
+    test -d "$SYNC_BUCHET_PATH/$SYNC_FILE" || mkdir -p "$SYNC_BUCHET_PATH"
+    cp "$SYNC_FILE_PATH/$SYNC_FILE" "$SYNC_BUCHET_PATH/$SYNC_FILE"
+  else
+    cp "$SYNC_BUCHET_PATH/$SYNC_FILE"  "$SYNC_FILE_PATH/$SYNC_FILE"
+  fi
+}
