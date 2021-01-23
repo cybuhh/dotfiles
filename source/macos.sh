@@ -51,14 +51,15 @@ alias cleanup-vlc-recent='defaults write ~/Library/Preferences/org.videolan.vlc.
 alias fcp-reset-trial='rm ~/Library/Application\ Support/.ffuserdata'
 
 function sync-jumpdesktop() {
+  SYNC_BUCKET_PATH="$SYNC_BUCKET/JumpDesktop"
+  SYNC_FILE_FOLDER="$HOME/Library/Containers/com.p5sys.jump.mac.viewer/Data/Library/Application Support/Jump Desktop"
   SYNC_FILE="JDInputProfile.plist"
-  SYNC_FILE_PATH="$HOME/Library/Containers/com.p5sys.jump.mac.viewer/Data/Library/Application Support/Jump Desktop"
-  SYNC_BUCHET_PATH="$SYNC_BUCKET/JumpDesktop"
+  syncLatest "$SYNC_BUCKET_PATH" "$SYNC_FILE_FOLDER" "$SYNC_FILE"
+}
 
-  if [ "$SYNC_FILE_PATH/$SYNC_FILE" -nt "$SYNC_BUCHET_PATH/$SYNC_FILE" ]; then
-    test -d "$SYNC_BUCHET_PATH/$SYNC_FILE" || mkdir -p "$SYNC_BUCHET_PATH"
-    cp "$SYNC_FILE_PATH/$SYNC_FILE" "$SYNC_BUCHET_PATH/$SYNC_FILE"
-  else
-    cp "$SYNC_BUCHET_PATH/$SYNC_FILE"  "$SYNC_FILE_PATH/$SYNC_FILE"
-  fi
+function sync-forlift() {
+  SYNC_BUCKET_PATH="$SYNC_BUCKET/forklift"
+  SYNC_FILE_FOLDER="$HOME/Library/Application Support/ForkLift/Favorites"
+  SYNC_FILE="Favorites.json"
+  syncLatest "$SYNC_BUCKET_PATH" "$SYNC_FILE_FOLDER" "$SYNC_FILE"
 }

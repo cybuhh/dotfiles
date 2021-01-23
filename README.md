@@ -243,6 +243,7 @@ Location: Kraków, małopolskie, Polska [50.0615,19.9359]
  - gh-pr-open - open create-pr page with current branch
  - napi - alias for napi - subtitle search
  - sync-jumpdesktop - sync JumpDesktop settings to sync bucket
+ - sync-forklift - sync JumpDesktop settings to sync bucket
  - sublime - alias for SublimeText
  - stree - alias for SourceTree
  - tor-proxy - enable/disable tor socks proxy for localhost:9050

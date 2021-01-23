@@ -83,6 +83,18 @@ function sourceIfExist() {
     test -f "$1" && source "$1"
 }
 
+# $SYNC_BUCHET_PATH
+# $SYNC_FILE_FOLDER
+# $SYNC_FILE
+function syncLatest() {
+  if [ "$2/$3" -nt "$1/$3" ]; then
+    test -d "$1/$3" || mkdir -p "$1"
+    cp "$2/$3" "$1/$3"
+  else
+    cp "$1/$3"  "$2/$3"
+  fi
+}
+
 function brewCmd() {
   # shellcheck disable=SC1117
   type "$1" > /dev/null 2>&1 || (echo -e "$1 missing, \nuse: brew install $1" && false)
