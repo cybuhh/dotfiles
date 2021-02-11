@@ -238,6 +238,7 @@ Location: Kraków, małopolskie, Polska [50.0615,19.9359]
  - cdr2iso - convert .cdr to .iso
  - fcp-reset-trial - reset final cut pro x trial
  - finder-open-icons - open folder with macos icons
+ - fix-spotlight - reset spotlight indices
  - flush-dns - flush dns
  - gh-open - open remote url in github
  - gh-pr-open - open create-pr page with current branch
