@@ -242,6 +242,7 @@ Location: Kraków, małopolskie, Polska [50.0615,19.9359]
  - flush-dns - flush dns
  - gh-open - open remote url in github
  - gh-pr-open - open create-pr page with current branch
+ - ls-autostart - list autostart items in all locations
  - napi - alias for napi - subtitle search
  - sync-jumpdesktop - sync JumpDesktop settings to sync bucket
  - sync-forklift - sync JumpDesktop settings to sync bucket
