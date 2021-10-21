@@ -1,7 +1,6 @@
 --netrc
---sleep-interval 5
---user-agent 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.80 Safari/537.36'
 --no-call-home
 --no-overwrites
---format mp4
 -o "%(title)s-%(id)s.%(ext)s"
+-f bestvideo+bestaudio
+--merge-output-format mp4
