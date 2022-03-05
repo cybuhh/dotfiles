@@ -110,8 +110,7 @@ Add to your .profile or .bash_profile line below to load it
   192.168.20.30
   ```
 
- - md-status - show md raid status
- - 
+ - route-lan - add local routes for lan
 
  - show-rpi-from-arp - show raspberry pi hosts in arp entries
 
@@ -294,6 +293,6 @@ Location: Kraków, małopolskie, Polska [50.0615,19.9359]
  - grep - colorized grep
  - ll - alias to ls -al
  - m4a2mp3 - convert all m4a file to mp3 in current directory
- - napi-find - search for subtitles fo video movies recursively
- - whatthecommit - get whatthecommit.com message
+ - md-status - show md raid status
+ - napi-find - search for subtitles fo video movies recursively - whatthecommit - get whatthecommit.com message
  - yt2mp3 - download youtube video and convert to mp3
