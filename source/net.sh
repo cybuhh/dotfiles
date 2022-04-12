@@ -37,7 +37,7 @@ ping-port() {
   (echo >/dev/tcp/"$1"/"$2") &>/dev/null && echo "open" || echo "close"
 }
 
-alias route-lan="networksetup -listallhardwareports| awk '/Wi-Fi/{getline; print $2}' | xargs sudo route add -net 192.168.0.0/24 -interface"
+alias route-lan="networksetup -listallhardwareports| awk '/Wi-Fi/{getline; print \$2}' | xargs sudo route add -net 192.168.0.0/24 -interface"
 
 function scan-for-rpi() {
   sudo nmap -sP $1 | awk '/^Nmap/{ipaddress=$NF}/B8:27:EB/{print ipaddress}'
