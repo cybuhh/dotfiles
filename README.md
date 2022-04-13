@@ -290,6 +290,7 @@ Location: Kraków, małopolskie, Polska [50.0615,19.9359]
  - cd-workspace-ops - cd to path ~/Workspace/ops
  - cd-workspace-svp - cd to path ~/Workspace/svp
  - count-uniq - count unique lines from piped input
+ - fix-xcode-cli - fix xcode command line tools
  - grep - colorized grep
  - ll - alias to ls -al
  - m4a2mp3 - convert all m4a file to mp3 in current directory

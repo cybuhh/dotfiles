@@ -8,6 +8,12 @@ alias cd-nmap-scripts-user='cd ~/.nmap/scripts'
 alias cd-workspace='cd ~/Workspace'
 alias cd-workspace-nodejs='cd ~/Workspace/nodejs'
 
+function fix-xcode-cli() {
+  xcode-select — install
+  sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+  sudo xcodebuild -license accept
+}
+
 alias grep='grep --color=auto'
 
 alias ll='ls -al'
