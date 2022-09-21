@@ -236,6 +236,7 @@ Location: Kraków, małopolskie, Polska [50.0615,19.9359]
  - cleanup-vlc-recent - clean VLC recent history
  - cdr2iso - convert .cdr to .iso
  - fcp-reset-trial - reset final cut pro x trial
+ - fix-bt - fix bluetooth issues
  - finder-open-icons - open folder with macos icons
  - fix-spotlight - reset spotlight indices
  - flush-dns - flush dns

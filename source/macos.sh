@@ -31,6 +31,18 @@ function cdr2iso {
   hdiutil convert $1 -format UDTO -o ${2/.cdr/.iso}
 }
 
+function fix-bt {
+  BT_PREFERENCES_FILE=$HOME/Library/Preferences/ByHost/com.apple.Bluetooth.FA20D8E1-AC5A-552B-9BA9-0CCA4C58DE66.plist
+  sudo pkill bluetoothd
+  echo 'remove all BT devices'
+  read
+  echo 'disable BT'
+  read
+  echo 'restart macos then turn on BT and add all BT devices'
+
+  mv $HBT_PREFERENCES_FILE ${BT_PREFERENCES_FILE}.bak
+}
+
 # //shellcheck disable=SC2142,SC2139,SC2154,SC1117
 function gh-pr-open() {
   base_url=$(git remote -v | head -1 | awk '{print $2}' | tr ':' '/' | sed -E 's/.+@/https:\/\//;s/\.git//')
