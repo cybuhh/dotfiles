@@ -7,14 +7,15 @@ fi
 export CLICOLOR=1
 
 alias airport="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport"
-alias flush-dns="sudo killall -HUP mDNSResponder"
 alias cleanup-vlc-recent='defaults write ~/Library/Preferences/org.videolan.vlc.plist recentlyPlayedMedia "{}"'
+alias flush-dns="sudo killall -HUP mDNSResponder"
 alias fcp-reset-trial='rm ~/Library/Application\ Support/.ffuserdata'
 alias finder-open-icons='open /System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/'
 alias fix-spotlight='sudo mdutil -a -i off && sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist &&sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist && sudo mdutil -a -i on'
 # shellcheck disable=SC2142,SC2139,SC2154,SC1117
 alias gh-open="git remote -v | head -1 | awk '{print \$2}' | tr ':' '/' | sed -E 's/.+@/https:\/\//;s/\.git//' | xargs open"
 alias ls-autostart='ls -al ~/Library/LaunchAgents /Library/LaunchAgents /Library/LaunchDaemons'
+alias open-icons="open /System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/"
 # shellcheck disable=SC1117
 alias sublime="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 alias stree="/Applications/SourceTree.app/Contents/Resources/stree"

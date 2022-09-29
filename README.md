@@ -232,6 +232,7 @@ Location: Kraków, małopolskie, Polska [50.0615,19.9359]
 ## macos
 
  - battery - get battery level for keyboard and mouse
+ - open-icons - cd macos system icons folder in finder
  - cleanup-cache - remove cache of given type from disk
  - cleanup-vlc-recent - clean VLC recent history
  - cdr2iso - convert .cdr to .iso
