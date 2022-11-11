@@ -119,6 +119,8 @@ Add to your .profile or .bash_profile line below to load it
  ? (192.168.20.30) at b8:27:eb:7d:a6:f7 on en0 ifscope [ethernet]
  ```
 
+ - ssh-noconfig - ssh without loading config file
+ 
  - ssh-pass - ssh with forced password auth
  
  - ssl-check - show ssl certificate details for given domain name

@@ -45,6 +45,7 @@ function scan-for-rpi() {
 
 alias show-rpi-from-arp='arp -na | grep -i b8:27:eb'
 
+alias ssh-noconfig='ssh -F /dev/null'
 alias ssh-pass='ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no'
 
 alias ssl-check='f() { openssl s_client -servername ${1} -connect ${1}:${2:-443} | openssl x509 -noout -enddate; }; echo | f'
