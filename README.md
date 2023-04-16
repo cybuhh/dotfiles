@@ -301,3 +301,4 @@ Location: Kraków, małopolskie, Polska [50.0615,19.9359]
  - md-status - show md raid status
  - napi-find - search for subtitles fo video movies recursively - whatthecommit - get whatthecommit.com message
  - yt2mp3 - download youtube video and convert to mp3
+ - yt2mp3-dlp - download youtube video and convert to mp3 (yt-dlp)
