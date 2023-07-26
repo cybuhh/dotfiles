@@ -11,5 +11,7 @@ export BASH_MAJOR="${BASH_VERSION:0:1}"
 export LOCATION_CITY="krakow"
 
 export SYNC_BUCKET=~/Library/Mobile\ Documents/com~apple~CloudDocs/apps.sync/brew
-export HOMEBREW_BREWFILE=$SYNC_BUCKET/$(hostname -s).txt
 export BASH_SILENCE_DEPRECATION_WARNING=1
+
+export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_BREWFILE=$SYNC_BUCKET/$(hostname -s).txt

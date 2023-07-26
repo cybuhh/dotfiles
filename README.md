@@ -296,6 +296,7 @@ Location: Kraków, małopolskie, Polska [50.0615,19.9359]
  - count-uniq - count unique lines from piped input
  - fix-xcode-cli - fix xcode command line tools
  - grep - colorized grep
+ - hostname-set - set HostName/LocalHostName/ComputerName to prefered one and flush dns
  - ll - alias to ls -al
  - m4a2mp3 - convert all m4a file to mp3 in current directory
  - md-status - show md raid status
