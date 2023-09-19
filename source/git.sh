@@ -4,6 +4,7 @@ alias git-add-selective='git add -p'
 alias git-autocommit='git add -A && git commit -m "$(curl -sS http://whatthecommit.com/index.txt)" && git push'
 alias git-branch-rename='!f() { git push origin :$(git branch --show-current) && git branch -m $1 && git push origin $1 && git push origin -u $1; };f'
 alias git-c='git commit -m'
+alias git-clean="git clean -d -f ."
 alias git-commit-again="git add -A && git commit --amend --no-edit"
 alias git-commits-waiting='git log origin/master..master'
 alias git-log-oneline='git log --pretty=oneline --abbrev-commit'
@@ -24,6 +25,9 @@ function git-set-details-github() {
 function git-is-file-changed() {
     git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD | grep --quiet "$1"
 }
+
+alias git-push-force-with-lease='test $(git branch --show-current) != master && git push --force-with-lease'
+alias git-rebase-master='test $(git branch --show-current) != master && git fetch -p && git rebase -i origin/master'
 
 # stdout=$(git-scan-changes) && test -z "$stdout" || osascript -e "display notification \"$stdout\" with title \"git\" sound name \"purr\""
 function git-scan-changes() {
