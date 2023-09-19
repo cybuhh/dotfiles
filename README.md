@@ -246,7 +246,8 @@ Location: Kraków, małopolskie, Polska [50.0615,19.9359]
  - gh-open - open remote url in github
  - gh-pr-open - open create-pr page with current branch
  - ls-autostart - list autostart items in all locations
- - napi - alias for napi - subtitle search
+ - napi-find - alias for napi - subtitle search
+ - restart-icloud - restart hanging iCloud sercice
  - sync-jumpdesktop - sync JumpDesktop settings to sync bucket
  - sync-forklift - sync JumpDesktop settings to sync bucket
  - sublime - alias for SublimeText
@@ -254,7 +255,7 @@ Location: Kraków, małopolskie, Polska [50.0615,19.9359]
  - tor-proxy - enable/disable tor socks proxy for localhost:9050
  - travis-open - open remote url related task in travis
  
- ## rpi
+## rpi
  
   - display-power - switch on/off screen
   - temp - show cpu temperature

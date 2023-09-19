@@ -16,6 +16,7 @@ alias fix-spotlight='sudo mdutil -a -i off && sudo launchctl unload -w /System/L
 alias gh-open="git remote -v | head -1 | awk '{print \$2}' | tr ':' '/' | sed -E 's/.+@/https:\/\//;s/\.git//' | xargs open"
 alias ls-autostart='ls -al ~/Library/LaunchAgents /Library/LaunchAgents /Library/LaunchDaemons'
 alias open-icons="open /System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/"
+alias restart-icloud="pkill -f 'Support/bird'"
 # shellcheck disable=SC1117
 alias sublime="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 alias stree="/Applications/SourceTree.app/Contents/Resources/stree"
