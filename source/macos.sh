@@ -14,6 +14,7 @@ alias finder-open-icons='open /System/Library/CoreServices/CoreTypes.bundle/Cont
 alias fix-spotlight='sudo mdutil -a -i off && sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist &&sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.metadata.mds.plist && sudo mdutil -a -i on'
 # shellcheck disable=SC2142,SC2139,SC2154,SC1117
 alias gh-open="git remote -v | head -1 | awk '{print \$2}' | tr ':' '/' | sed -E 's/.+@/https:\/\//;s/\.git//' | xargs open"
+alias jpg-watermark-filename='mogrify -fill white -undercolor "#00000080" -pointsize 50 -gravity NorthEast -annotate +10+10 %t'
 alias ls-autostart='ls -al ~/Library/LaunchAgents /Library/LaunchAgents /Library/LaunchDaemons'
 alias open-icons="open /System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/"
 alias restart-icloud="pkill -f 'Support/bird'"
@@ -23,6 +24,21 @@ alias stree="/Applications/SourceTree.app/Contents/Resources/stree"
 alias qnapi="/Applications/QNapi.app/Contents/MacOS/QNapi -c"
 # shellcheck disable=SC2142,SC2139,SC2154,SC1117
 alias travis-open="git remote -v | head -1 | awk '{print \$2}' | tr ':' '/' | sed -E 's/.+@/https:\/\//;s/\.git//;s/github/travis/' | xargs open"
+
+function jpg-generate-thumbs() {
+  THUMBS_DIR="$PWD/thumbs"
+  test -d "$THUMBS_DIR" || mkdir "$THUMBS_DIR"
+
+  for IMAGE_FILE in *.{jpg,JPG}; do
+    if [ -e "$IMAGE_FILE" ]; then
+      THUMB_FILE="$THUMBS_DIR/${IMAGE_FILE/.JPG/.jpg}"
+      echo "converting $IMAGE_FILE" "$THUMB_FILE"
+      convert "$IMAGE_FILE" -resize 600x "$THUMB_FILE"
+      sleep 1
+      jpg-watermark-filename "$THUMB_FILE"
+    fi
+  done
+}
 
 function battery() {
 	ioreg -c AppleBluetoothHIDKeyboard | grep 'BatteryPercent\" =' | awk '{ print "Keyboard battery level: " $NF "%" }'
