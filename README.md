@@ -304,3 +304,5 @@ Location: Kraków, małopolskie, Polska [50.0615,19.9359]
  - napi-find - search for subtitles fo video movies recursively - whatthecommit - get whatthecommit.com message
  - yt2mp3 - download youtube video and convert to mp3
  - yt2mp3-dlp - download youtube video and convert to mp3 (yt-dlp)
+ - yt2mp4 - download youtube video in high quality and convert to mp4
+ - yt2mp4-dlp - download youtube video in high quality and convert to mp4 (yt-dlp)

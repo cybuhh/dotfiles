@@ -17,6 +17,7 @@ alias napi-find='find . -name "*.avi" -o -name "*.mpg" -o -name "*.mpeg" -o -nam
 alias yt2mp3='youtube-dl -x --audio-format mp3 -f bestaudio'
 alias yt2mp3-dlp='yt-dlp -x --audio-format mp3 -f bestaudio'
 alias yt2mp4='youtube-dl -f bestvideo+bestaudio --merge-output-format mp4'
+alias yt2mp4-dlp='yt-dlp -f bestvideo+bestaudio --merge-output-format mp4'
 alias whatthecommit="curl -sS http://whatthecommit.com/index.txt"
 
 # params: [limit=100]
