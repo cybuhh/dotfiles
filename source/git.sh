@@ -6,6 +6,7 @@ alias git-branch-rename='!f() { git push origin :$(git branch --show-current) &&
 alias git-c='git commit -m'
 alias git-clean="git clean -d -f ."
 alias git-commit-again="git add -A && git commit --amend --no-edit"
+alias git-commit-all='git add -A && git commit -m'
 alias git-commits-waiting='git log origin/master..master'
 alias git-log-oneline='git log --pretty=oneline --abbrev-commit'
 alias git-master='git fetch -p && git checkout master && git pull'
