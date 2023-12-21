@@ -308,3 +308,8 @@ Location: Kraków, małopolskie, Polska [50.0615,19.9359]
  - yt2mp3-dlp - download youtube video and convert to mp3 (yt-dlp)
  - yt2mp4 - download youtube video in high quality and convert to mp4
  - yt2mp4-dlp - download youtube video in high quality and convert to mp4 (yt-dlp)
+
+## resources
+https://github.com/VigoKrumins/folder-icons.git
+https://github.com/dhanishgajjar/terminal-icons.git
+https://github.com/dhanishgajjar/vscode-icons.git
