@@ -8,6 +8,8 @@ export CLICOLOR=1
 
 alias airport="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport"
 alias cleanup-vlc-recent='defaults write ~/Library/Preferences/org.videolan.vlc.plist recentlyPlayedMedia "{}"'
+alias cleanup-qbitorrent='rm /Users/cybuhh/Library/Application\ Support/qBittorrent/logs/*'
+alias cleanup-apps-history='cleanup-vlc-recent && cleanup-qbitorrent'
 alias flush-dns="sudo killall -HUP mDNSResponder"
 alias fcp-reset-trial='rm ~/Library/Application\ Support/.ffuserdata'
 alias finder-open-icons='open /System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/'
