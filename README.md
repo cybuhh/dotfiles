@@ -42,6 +42,7 @@ Add to your .profile or .bash_profile line below to load it
 
  - git-autocommit - add all changed files, commit and push to origin
  - git-add-selective - alias to git add -p
+ - git-branch-remove-merged - remove merged branches
  - git-branch-rename - rename current local and remote branch
  - git-commit-all - git add -A + git commit -m 
  - git-c - git commit alias

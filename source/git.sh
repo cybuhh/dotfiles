@@ -11,6 +11,7 @@ alias git-commits-waiting='git log origin/master..master'
 alias git-log-oneline='git log --pretty=oneline --abbrev-commit'
 alias git-master='git fetch -p && git checkout master && git pull'
 alias git-push-force-with-lease="git push --force-with-lease"
+alias git-branch-remove-merged='git fetch -p && git branch --merged | egrep -v "(^\*|master|main|dev)" | xargs git branch -d'
 alias git-rebase='git fetch -p && git rebase -i origin/master'
 alias git-rebuid='git commit -am "rebuild" --allow-empty'
 alias git-reset='git reset --hard HEAD'alias git-submodule-update="git fetch && git pull && git submodule update -f --init --recursive"
