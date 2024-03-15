@@ -3,6 +3,9 @@
 alias disable-history='unset HISTFILE'
 alias find-suid='find / -user root -perm -u=s -type f 2>/dev/null'
 
+alias auth-tail-failure-ips="tail -f /var/log/auth.log | grep --line-buffered -oP 'failure.+rhost=\K[^\s]+'"
+alias auth-failure-ips="cat /var/log/auth.log | grep -oP 'failure.+rhost=\K[^\s]+' | sort | uniq"
+
 # bash v3 compatible - no assoc arrays
 # $1 - type_to_clean
 # bash v3 compatible - no assoc arrays
