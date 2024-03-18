@@ -3,8 +3,10 @@
 alias disable-history='unset HISTFILE'
 alias find-suid='find / -user root -perm -u=s -type f 2>/dev/null'
 
-alias auth-tail-failure-ips="tail -f /var/log/auth.log | grep --line-buffered -oP 'failure.+rhost=\K[^\s]+'"
 alias auth-failure-ips="cat /var/log/auth.log | grep -oP 'failure.+rhost=\K[^\s]+' | sort | uniq"
+alias auth-failure-ips-tail="tail -f /var/log/auth.log | grep --line-buffered -oP 'failure.+rhost=\K[^\s]+'"
+alias nextcloud-logs-failure='docker container ls | grep nginx-proxy_web | cut -d " " -f 1 | xargs -I % docker container logs -f % | grep -iv --line-buffered uptime | grep --line-buffered -E \"\\s[4,5][0-9]{2}\\s'
+
 
 # bash v3 compatible - no assoc arrays
 # $1 - type_to_clean
