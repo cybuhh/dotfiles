@@ -312,7 +312,8 @@ $ server-static-python2 [port]
 - ll - alias to ls -al
 - m4a2mp3 - convert all m4a file to mp3 in current directory
 - md-status - show md raid status
-- napi-find - search for subtitles fo video movies recursively - whatthecommit - get whatthecommit.com message
+- napi-find - search for subtitles fo video movies recursively
+- whatthecommit - get whatthecommit.com message
 - video2mp4 - convert video files in current folder to mp4
 - yt2mp3 - download youtube video and convert to mp3
 - yt2mp3-dlp - download youtube video and convert to mp3 (yt-dlp)
