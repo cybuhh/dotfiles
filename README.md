@@ -240,8 +240,8 @@ redis         6379         tcp                 An advanced key-value cache and s
 
 ## macos
 
+- bluetooth-list - list bluetooth devices with MACs
 - battery - get battery level for keyboard and mouse
-- open-icons - cd macos system icons folder in finder
 - cleanup-cache - remove cache of given type from disk
 - cleanup-vlc-recent - clean VLC recent history
 - cdr2iso - convert .cdr to .iso
@@ -254,6 +254,7 @@ redis         6379         tcp                 An advanced key-value cache and s
 - gh-pr-open - open create-pr page with current branch
 - ls-autostart - list autostart items in all locations
 - napi-find - alias for napi - subtitle search
+- open-icons - cd macos system icons folder in finder
 - restart-icloud - restart hanging iCloud sercice
 - sync-jumpdesktop - sync JumpDesktop settings to sync bucket
 - sync-forklift - sync JumpDesktop settings to sync bucket

@@ -7,6 +7,7 @@ fi
 export CLICOLOR=1
 
 alias airport="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport"
+alias bluetooth-list="system_profiler SPBluetoothDataType | grep -B 1 Address | sed 's/^ *//'"
 alias cleanup-vlc-recent='defaults write ~/Library/Preferences/org.videolan.vlc.plist recentlyPlayedMedia "{}"'
 alias cleanup-qbitorrent='rm /Users/cybuhh/Library/Application\ Support/qBittorrent/logs/*'
 alias cleanup-safari='killall Safari && ps -ax | grep -i com.apple.Safari.History | grep -v grep && cut -f 1 -d " " | xargs kill -9 && rm  ~/Library/Safari/History.db*'
