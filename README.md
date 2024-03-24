@@ -126,6 +126,8 @@ $ show-rpi-from-arp
 
 - ssh-noconfig - ssh without loading config file
 
+- ssh-set-date - set current date on remote host
+
 - ssh-pass - ssh with forced password auth
 
 - ssl-check - show ssl certificate details for given domain name
