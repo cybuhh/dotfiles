@@ -9,7 +9,7 @@ alias git-commit-again="git add -A && git commit --amend --no-edit"
 alias git-commit-all='git add -A && git commit -m'
 alias git-commits-waiting='git log origin/master..master'
 alias git-log-oneline='git log --pretty=oneline --abbrev-commit'
-alias git-master='git fetch -p && git checkout master && git pull'
+alias git-master='git fetch -p && (git checkout master || git checkout main) && git pull'
 alias git-push-force-with-lease="git push --force-with-lease"
 alias git-branch-remove-merged='git fetch -p && git branch --merged | egrep -v "(^\*|master|main|dev)" | xargs git branch -d'
 alias git-rebase='git fetch -p && git rebase -i origin/master'
