@@ -140,12 +140,19 @@ function dotfiles-install {
 complete -W "$(echo `cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["`;)" ssh
 
 export NVM_DIR="$HOME/.nvm"
-if [ -d NVM_DIR ]; then
+if [ -d $NVM_DIR ]; then
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
 
 export RVM_DIR="$HOME/.rvm"
-if [ -d NVM_DIR ]; then
+if [ -d $RVM_DIR ]; then
   export PATH="$PATH:$RVM_DIR/bin"
+fi
+
+# Path to your oh-my-bash installation.
+export OSH="$HOME/.oh-my-bash"
+
+if [ -d $OSH ]; then
+  source "$DOTFILES_PATH/config/oh-my-bash"
 fi
