@@ -160,4 +160,4 @@ if [ -d $OSH ]; then
 fi
 
 # init https://github.com/junegunn/fzf
-which fzf && eval "$(fzf --bash)"
+which fzf > /dev/null && eval "$(fzf --bash)"
