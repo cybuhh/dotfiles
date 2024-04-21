@@ -130,6 +130,7 @@ function dotfiles-install {
     source "$DOTFILES_PATH/source/git.sh"
     # shellcheck disable=SC2046,SC2164
     pushd "$DOTFILES_PATH" > /dev/null && git-submodule-update && popd > /dev/null
+    echo 'Recomended fonts https://github.com/powerline/fonts'
     echo 'Remember to load dofiles by adding to your ~/.bashrc or ~/.bash_profile or ~/.profile below line'
     # shellcheck disable=SC1117
     echo -e "\nsource $DOTFILES_PATH/init.sh\n"
