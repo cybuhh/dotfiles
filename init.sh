@@ -99,7 +99,8 @@ function brewCmd() {
   # shellcheck disable=SC1117
   type "$1" > /dev/null 2>&1 || (echo -e "$1 missing, \nuse: brew install $1" && false)
 }
-sourceIfExist "$DOTFILES_VENDOR_PATH/liquidprompt/liquidprompt"
+#sourceIfExist "$DOTFILES_VENDOR_PATH/liquidprompt/liquidprompt"
+sourceIfExist $HOME/.bashrc
 
 sourceIfExist "/usr/local/etc/bash_completion"
 sourceIfExist "$DOTFILES_VENDOR_PATH/git/git-completion.bash"
@@ -121,7 +122,10 @@ function dotfiles-install {
     symlink-with-backup "$DOTFILES_PATH/config/gitignore_global" ~/.gitignore_global
     symlink-with-backup "$DOTFILES_PATH/config/youtube-dl" ~/.config/youtube-dl/config
     test -d "$DOTFILES_VENDOR_PATH/git" || mkdir -p "$DOTFILES_VENDOR_PATH/git/"
+    echo "installing git-completion"
     curl -s https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash > "$DOTFILES_VENDOR_PATH/git/git-completion.bash"
+    echo "installing oh-my-bash"
+    bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
     # shellcheck source=source/git.sh
     source "$DOTFILES_PATH/source/git.sh"
     # shellcheck disable=SC2046,SC2164
@@ -134,3 +138,14 @@ function dotfiles-install {
 # autocomplete host for ssh
 # shellcheck disable=SC2046,SC2005,SC2006,SC2002,SC1117
 complete -W "$(echo `cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["`;)" ssh
+
+export NVM_DIR="$HOME/.nvm"
+if [ -d NVM_DIR ]; then
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
+
+export RVM_DIR="$HOME/.rvm"
+if [ -d NVM_DIR ]; then
+  export PATH="$PATH:$RVM_DIR/bin"
+fi
