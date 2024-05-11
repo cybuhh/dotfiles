@@ -128,6 +128,7 @@ function dotfiles-install {
     bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
     # shellcheck source=source/git.sh
     source "$DOTFILES_PATH/source/git.sh"
+    brew install fzf hstr
     # shellcheck disable=SC2046,SC2164
     pushd "$DOTFILES_PATH" > /dev/null && git-submodule-update && popd > /dev/null
     echo 'Recomended fonts https://github.com/powerline/fonts'
@@ -158,3 +159,6 @@ export OSH="$HOME/.oh-my-bash"
 if [ -d $OSH ]; then
   source "$DOTFILES_PATH/config/oh-my-bash"
 fi
+
+# init https://github.com/junegunn/fzf
+which fzf > /dev/null && eval "$(fzf --bash)"
