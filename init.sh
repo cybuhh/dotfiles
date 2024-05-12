@@ -99,7 +99,6 @@ function brewCmd() {
   # shellcheck disable=SC1117
   type "$1" > /dev/null 2>&1 || (echo -e "$1 missing, \nuse: brew install $1" && false)
 }
-#sourceIfExist "$DOTFILES_VENDOR_PATH/liquidprompt/liquidprompt"
 sourceIfExist $HOME/.bashrc
 
 sourceIfExist "/usr/local/etc/bash_completion"
@@ -118,7 +117,6 @@ done
 
 function dotfiles-install {
     brew install bash-completion
-    symlink-with-backup "$DOTFILES_PATH/config/liquidpromptrc" ~/.config/liquidpromptrc
     symlink-with-backup "$DOTFILES_PATH/config/gitignore_global" ~/.gitignore_global
     symlink-with-backup "$DOTFILES_PATH/config/youtube-dl" ~/.config/youtube-dl/config
     test -d "$DOTFILES_VENDOR_PATH/git" || mkdir -p "$DOTFILES_VENDOR_PATH/git/"
