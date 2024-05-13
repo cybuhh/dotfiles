@@ -142,8 +142,8 @@ complete -W "$(echo `cat ~/.ssh/known_hosts | cut -f 1 -d ' ' | sed -e s/,.*//g 
 export NVM_DIR="$HOME/.nvm"
 if [ -d $NVM_DIR ]; then
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-  source <(npm completion)
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/bash_completion" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/bash_completion/nvm"  # This loads nvm bash_completion
+  eval "$(npm completion)"
 fi
 
 export RVM_DIR="$HOME/.rvm"
