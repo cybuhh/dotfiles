@@ -129,6 +129,10 @@ function dotfiles-install {
     brew install fzf hstr
     # shellcheck disable=SC2046,SC2164
     pushd "$DOTFILES_PATH" > /dev/null && git-submodule-update && popd > /dev/null
+
+    symlink-with-backup "$DOTFILES_PATH/config/zed/settings.json" ~/.config/zed/settings.json
+    symlink-with-backup "$DOTFILES_PATH/config/zed/keymap.json" ~/.config/zed/keymap.json
+
     echo 'Recomended fonts https://github.com/powerline/fonts'
     echo 'Remember to load dofiles by adding to your ~/.bashrc or ~/.bash_profile or ~/.profile below line'
     # shellcheck disable=SC1117
