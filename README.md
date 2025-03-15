@@ -301,6 +301,8 @@ $ server-static-python2 [port]
 ## util
 
 - .. - cd ..
+- lanscan-backup - copy custom LanScan hostnames to iCloud folder
+- lanscan-restore - restore custom LanScan hostnames from iCloud folder
 - cd-dotfiles - cd to dotfiles path
 - cd-nmap-scripts-user - cd to user's nmap scripts
 - cd-nmap-scripts-global - cd to global nmap scripts path

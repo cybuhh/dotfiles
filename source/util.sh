@@ -49,3 +49,6 @@ function hostname-set {
   sudo hostname -s $1
   dscacheutil -flushcache
 }
+
+lanscan-backup="cp -f $HOME/Library/Group\ Containers/AATLWWB4MZ.com.iwaxx.app-group/Library/Application\ Support/DevicesDict-LS.plist $HOME/Library/Mobile\ Documents/com~apple~CloudDocs/apps.sync/LanScan"
+lanscan-restore="cp -f $HOME/Library/Mobile\ Documents/com~apple~CloudDocs/apps.sync/LanScan $HOME/Library/Group\ Containers/AATLWWB4MZ.com.iwaxx.app-group/Library/Application\ Support/DevicesDict-LS.plist"
