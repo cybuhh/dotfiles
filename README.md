@@ -10,6 +10,7 @@ Add to your .profile or .bash_profile line below to load it
 - textedit - open file in TextEdit
 - chrome-dws - run chrome with disabled web security
 - codium - run vscodium with --enable-proposed-api flag for pull-request-github
+- zed - open file in Zed
 
 ## common
 

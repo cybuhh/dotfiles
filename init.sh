@@ -155,6 +155,10 @@ if [ -d $RVM_DIR ]; then
   export PATH="$PATH:$RVM_DIR/bin"
 fi
 
+# 
+source $HOMEBREW_PREFIX/opt/chruby/share/chruby/chruby.sh
+source $HOMEBREW_PREFIX/opt/chruby/share/chruby/auto.sh
+
 # Path to your oh-my-bash installation.
 export OSH="$HOME/.oh-my-bash"
 

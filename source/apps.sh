@@ -6,3 +6,4 @@ alias sublimetext='open -a Sublime\ Text'
 alias textedit='open -a TextEdit'
 alias chrome-dws='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --disable-web-security --user-data-dir=$HOME/Library/Application\ Support/Google/Chrome/Default'
 alias codium="codium --enable-proposed-api GitHub.vscode-pull-request-github"
+alias zed="/Applications/Zed.app/Contents/MacOS/cli"
