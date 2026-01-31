@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+alias commit-message='git diff --staged | gemini "Generate a conventional commit message for the following changes:"'
 alias remove-node_modules='find . -type d -name node_modules -exec rm -r {} \;'
 alias docker-cleanup='docker system prune && docker container prune && docker image prune && docker network prune && docker volume prune'
 
